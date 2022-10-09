@@ -16,6 +16,8 @@ As a user, I want the ability to...
   - create my own recipes. 
   - update my own recipes.
   - customize provided recipes.
+  - add additional ingredient (and ingredient amout) input boxes if the recipe calls for it.
+  - add additional garnish (and garnish amout) input boxes if the recipe calls for it.
   - add customized recipes to my "MyOriginals" folder.
   - view all of the provided recipes. 
   - view all of my original recipes in a list. 
@@ -29,17 +31,29 @@ As a user, I want the ability to...
 
   Wireframes/Screenshots:
 
+  "Aloha (welcome)" Page
   ![General vibe picture](/tikiappwireframes/WireframesTIKIAppAloha.png)
+  "Sign up" Page
   ![General vibe picture](/tikiappwireframes/WireframesTIKIAppSignup.png)
+  "Login" Page
   ![General vibe picture](/tikiappwireframes/WireframesTIKIAppLogin.png)
+  "Logout" Page
   ![General vibe picture](/tikiappwireframes/WireframesTIKIAppLogout.png)
+  "Sorry (age requirment not met)" Page
   ![General vibe picture](/tikiappwireframes/WireframesTIKIAppSorry.png)
+  "Classic Tiki" Index Page
   ![General vibe picture](/tikiappwireframes/WireframesTIKIAppClassicsIndex.png)
+  "Classic Tiki" Show Page
   ![General vibe picture](/tikiappwireframes/WireframesTIKIAppClassicsShow.png)
+  "MyOriginals" Index Page
   ![General vibe picture](/tikiappwireframes/WireframesTIKIAppMyOriginalsIndex.png)
+  "MyOriginals" Show Page
   ![General vibe picture](/tikiappwireframes/WireframesTIKIAppMyOriginalsShow.png)
+  "MyOriginals" Edit Page
   ![General vibe picture](/tikiappwireframes/WireframesTIKIAppMyOriginalsEdit.png)
+  "Personal Favs" Index Page
   ![General vibe picture](/tikiappwireframes/WireframesTIKIAppPersonalFavsIndex.png)
+  "Create New" Page
   ![General vibe picture](/tikiappwireframes/WireframesTIKIAppNewCreation.png)
 
 
