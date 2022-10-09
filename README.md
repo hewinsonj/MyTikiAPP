@@ -61,4 +61,4 @@ As a user, I want the ability to...
 
   ERD:
 
-  ![General vibe picture](/tikiappwireframes/MyTikiERD1.png)
+  ![General vibe picture](/tikiappwireframes/TikiAppERD2.png.png)
