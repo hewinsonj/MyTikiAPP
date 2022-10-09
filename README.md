@@ -23,6 +23,8 @@ As a user, I want the ability to...
   - view all of my original recipes in a list. 
   - view all of the recipes I have favorited.
   - read more details of individual recipes. 
+  - see the original creator of the classic tiki cocktails.
+  - see when my original cocktails were last updated.
   - delete my recipes.  
   - favorite the provided classic tiki recipes.  
   - remove recipes from my favorites.
@@ -32,31 +34,31 @@ As a user, I want the ability to...
   Wireframes/Screenshots:
 
   "Aloha (welcome)" Page
-  ![General vibe picture](/tikiappwireframes/WireframesTIKIAppAloha.png)
+  ![](/tikiappwireframes/WireframesTIKIAppAloha.png)
   "Sign up" Page
-  ![General vibe picture](/tikiappwireframes/WireframesTIKIAppSignup.png)
+  ![](/tikiappwireframes/WireframesTIKIAppSignup.png)
   "Login" Page
-  ![General vibe picture](/tikiappwireframes/WireframesTIKIAppLogin.png)
+  ![](/tikiappwireframes/WireframesTIKIAppLogin.png)
   "Logout" Page
-  ![General vibe picture](/tikiappwireframes/WireframesTIKIAppLogout.png)
+  ![](/tikiappwireframes/WireframesTIKIAppLogout.png)
   "Sorry (age requirment not met)" Page
-  ![General vibe picture](/tikiappwireframes/WireframesTIKIAppSorry.png)
+  ![](/tikiappwireframes/WireframesTIKIAppSorry.png)
   "Classic Tiki" Index Page
-  ![General vibe picture](/tikiappwireframes/WireframesTIKIAppClassicsIndex.png)
+  ![](/tikiappwireframes/WireframesTIKIAppClassicsIndex1.png)
   "Classic Tiki" Show Page
-  ![General vibe picture](/tikiappwireframes/WireframesTIKIAppClassicsShow.png)
+  ![](/tikiappwireframes/WireframesTIKIAppClassicsShow.png)
   "MyOriginals" Index Page
-  ![General vibe picture](/tikiappwireframes/WireframesTIKIAppMyOriginalsIndex.png)
+  ![](/tikiappwireframes/WireframesTIKIApp-MyOriginals%20Index.drawio.png)
   "MyOriginals" Show Page
-  ![General vibe picture](/tikiappwireframes/WireframesTIKIAppMyOriginalsShow.png)
+  ![](/tikiappwireframes/WireframesTIKIAppMyOriginalsShow.png)
   "MyOriginals" Edit Page
-  ![General vibe picture](/tikiappwireframes/WireframesTIKIAppMyOriginalsEdit.png)
+  ![](/tikiappwireframes/WireframesTIKIAppMyOriginalsEdit.png)
   "Personal Favs" Index Page
-  ![General vibe picture](/tikiappwireframes/WireframesTIKIAppPersonalFavsIndex.png)
+  ![](/tikiappwireframes/WireframesTIKIAppPersonalFavsIndex1.png)
   "Create New" Page
-  ![General vibe picture](/tikiappwireframes/WireframesTIKIAppNewCreation.png)
+  ![](/tikiappwireframes/WireframesTIKIAppNewCreation.png)
 
 
   ERD:
 
-  ![General vibe picture](/tikiappwireframes/TikiAppERD.png)
+  ![General vibe picture](/tikiappwireframes/MyTikiERD1.png)
