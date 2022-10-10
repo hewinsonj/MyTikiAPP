@@ -31,34 +31,34 @@ As a user, I want the ability to...
   - filter the shown classic recipes by keywords.
   - filter my own recipes by keywords.
 
-  Mon: Pseudo code layout
-  Tues: REST tikiDrinks
-  Wed: REST users
-  Thurs: REST Favs/Customized drinks
-  Fri: Views
-  Sat: Views
-  Sun: Graphic design/ Bells and whistles
+  -Mon: Pseudo code layout
+  -Tues: REST tikiDrinks
+  -Wed: REST users
+  -Thurs: REST Favs/Customized drinks
+  -Fri: Views
+  -Sat: Views
+  -Sun: Graphic design/ Bells and whistles
 
 
 Model Exapmle:
 
 tikiDrink {
-    name: "Mai Tai",
-    ingredient1: "La Favorite Blanc",
-    ingredient1Amount: "1oz",
-    ingredient2: "Dry Curacao",
-    ingredient2Amount: ".75oz",
-    ingredient3: "Chairman's Reserve",
-    ingredient3Amount: "1oz",
-    ingredient4: "El Dorado 5 year",
-    ingredient4Amount: "1oz",
-    ingredient5: "Orgeat",
-    ingredient5Amount: ".5oz",
-    ingredient6: "Lime juice",
-    ingredient6Amount: ".75oz",
-    garnish1: "Pineapple wedge",
-    garnish1Amount: "1",
-    glassware: "Pearl Diver"
+    -name: "Mai Tai",
+    -ingredient1: "La Favorite Blanc",
+    -ingredient1Amount: "1oz",
+    -ingredient2: "Dry Curacao",
+    -ingredient2Amount: ".75oz",
+    -ingredient3: "Chairman's Reserve",
+    -ingredient3Amount: "1oz",
+    -ingredient4: "El Dorado 5 year",
+    -ingredient4Amount: "1oz",
+    -ingredient5: "Orgeat",
+    -ingredient5Amount: ".5oz",
+    -ingredient6: "Lime juice",
+    -ingredient6Amount: ".75oz",
+    -garnish1: "Pineapple wedge",
+    -garnish1Amount: "1",
+    -glassware: "Pearl Diver"
 }
 
 
