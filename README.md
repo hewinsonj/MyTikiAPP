@@ -60,9 +60,12 @@ tikiDrink {
 - ingredient5Amount: ".5oz",
 - ingredient6: "Lime juice",
 - ingredient6Amount: ".75oz",
+- ingredient6: "Angostura Bitters",
+- ingredient6Amount: "2 dashes",
 - garnish1: "Pineapple wedge",
 - garnish1Amount: "1",
 - glassware: "Pearl Diver"
+- prepInstruct: "Add ingredients to shaker tin, shake until dilluted, dirty dump, top with fresh pebble ice, place pineapple wedge on side of glass, add straw and serve!"
 }
 ----------------------------------------------------------------
 
