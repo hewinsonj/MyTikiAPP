@@ -65,7 +65,7 @@ tikiDrink {
   Wireframes/Screenshots:
 
   "Aloha (welcome)" Page
-  ![](/tikiappwireframes/WireframesTIKIAppAloha.png)
+  ![](/tikiappwireframes/AlohaOG.png)
   "Sign up" Page
   ![](/tikiappwireframes/WireframesTIKIAppSignup.png)
   "Login" Page
