@@ -2,17 +2,8 @@ Overview:
 
 "MyTiki" is an app that provides 10 classic tiki cocktail recipes that are available to be viewed by any logged in user. The user is also able to customize any of the provided recipies and add them to their own "original cocktails" folder, or create their own from scratch! The user also has the ability to filter the shown cocktails by keywords, and add any cocktails they wish to their "favorites" folder. 
 
-Technologies:
 
-- HTML5
-- CSS (Bootstrap)
-- JavaScript
-- LiquidJs
-- Express
-- MongoDB/Mongoose
-- Morgan
-- Bcryptjs
-
+General vibe of app
 ![General vibe picture](/tikiappwireframes/WireframesTIKIApp-Copy%20of%20Aloha.drawio.png)
 
 
@@ -51,7 +42,9 @@ As a user, I want the ability to...
   - Sun: Graphic design/ Bells and whistles
 
 ------------------------------------------------------------------
-Model Exapmle:
+Model Example:
+
+(Only ingredients 5-10, ingredient amounts 5-10, garnishes 3 & 4 and garnishes amounts 3 & 4 will have a default display value of none)
 
 tikiDrink {
 - name: "Mai Tai",
@@ -71,7 +64,7 @@ tikiDrink {
 - garnish1Amount: "1",
 - glassware: "Pearl Diver"
 }
-
+----------------------------------------------------------------
 
   Wireframes/Screenshots:
 
@@ -100,7 +93,20 @@ tikiDrink {
   "Create New" Page
   ![](/tikiappwireframes/WireframesTIKIAppNewCreation.png)
 
+-------------------------------------------------------------------
 
   ERD:
 
-  ![General vibe picture](/tikiappwireframes/TikiAppERD2.png)
+  ![MyTiki ERD](/tikiappwireframes/TikiAppERD2.png)
+
+------------------------------------------------------------------
+  Technologies:
+
+- HTML5
+- CSS (Bootstrap)
+- JavaScript
+- LiquidJs
+- Express
+- MongoDB/Mongoose
+- Morgan
+- Bcryptjs
