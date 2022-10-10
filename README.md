@@ -100,7 +100,7 @@ tikiDrink {
 
   ERD:
 
-  ![MyTiki ERD](/tikiappwireframes/TikiAppERD2.png)
+  ![MyTiki ERD](/tikiappwireframes/TikiAppERDNew.png)
 
 ------------------------------------------------------------------
   Technologies:
