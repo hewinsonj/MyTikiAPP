@@ -1,0 +1,65 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+
+    <div class="container-sm">
+        {%- comment -%} change the action {%- endcomment -%}
+        {%- comment -%} add values to input fields {%- endcomment -%}
+        {%- comment -%} add a back button {%- endcomment -%}
+        <form action="/tikiDrink/{{tikiDrink.id}}?_method=PUT" method="POST">
+            <fieldset>
+                <legend>Edit {{tikiDrink.name}}</legend>
+                <label class="form-label">Name: </label>
+                <input
+                    class="form-control"
+                    type="text"
+                    name="name"
+                    placeholder="Enter the name of the drink"
+                    value="{{ tikiDrink.name }}"
+                >
+                <label class="form-label">Last Updated: </label>
+                <input
+                    class="form-control"
+                    type="text"
+                    name="lastUpdated"
+                    placeholder="00/00/00"
+                    value="{{ tikiDrink.lastUpdated }}"
+                >
+                <label class="form-label">Ingredient: </label>
+                <input
+                    class="form-control"
+                    type="text"
+                    name="ingredient"
+                    placeholder="ingredient"
+                    value="{{ tikiDrink.ingredient }}"
+                >
+                <label class="form-label">Garnish: </label>
+                <input
+                    class="form-control"
+                    type="text"
+                    name="garnish"
+                    value="{{ tikiDrink.garnish }}"
+                >
+                <label class="form-label">Glassware: </label>
+                <input
+                    class="form-control"
+                    type="text"
+                    name="glassware"
+                    value="{{ tikiDrink.glassware }}"
+                >
+                <label class="form-label">Prep Instructions: </label>
+                <input
+                    class="form-control"
+                    type="text"
+                    name="prepInstruct"
+                    value="{{ tikiDrink.prepInstruct[0] }}"
+                >
+            </fieldset>
+            <input
+                class="btn btn-success"
+                type="submit"
+                value="Update {{tikiDrink.name}}"
+            >
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,2 +1,62 @@
 {%- comment -%} Needs a submit button with "Save" value
                 The Add buttons should toggle the display value of ingridients 7-10,ingredient amounts 7-10, garnishes 2-4 and garnish amounts 2-4. Find a way to allow prep instructions box to extend verically  {%- endcomment -%}
+
+{% layout 'layout.liquid' %}
+{% block content %}
+
+    <div class="container-sm">
+        <form action="/tikiDrink" method="POST">
+            <fieldset>
+<label class="form-label">Name: </label>
+                <input
+                    class="form-control"
+                    type="text"
+                    name="name"
+                    placeholder="Enter the name of the drink"
+                    value="{{ tikiDrink.name }}"
+                >
+                <label class="form-label">Last Updated: </label>
+                <input
+                    class="form-control"
+                    type="text"
+                    name="lastUpdated"
+                    placeholder="00/00/00"
+                    value="{{ tikiDrink.lastUpdated }}"
+                >
+                <label class="form-label">Ingredient: </label>
+                <input
+                    class="form-control"
+                    type="text"
+                    name="ingredient"
+                    placeholder="ingredient"
+                    value="{{ tikiDrink.ingredient }}"
+                >
+                <label class="form-label">Garnish: </label>
+                <input
+                    class="form-control"
+                    type="text"
+                    name="garnish"
+                >
+                <label class="form-label">Glassware: </label>
+                <input
+                    class="form-control"
+                    type="text"
+                    name="glassware"
+                >
+                <label class="form-label">Prep Instructions: </label>
+                <input
+                    class="form-control"
+                    type="text"
+                    name="prepInstruct"
+                >
+            </fieldset>
+            
+            <input
+                class="btn btn-success"
+                type="submit"
+                value="Create New tiki drink"
+            >
+        </form>
+    </div>
+
+{% endblock %}

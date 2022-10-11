@@ -1,0 +1,78 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+    <div class="container-md">
+        <article>
+            <h2>{{tikiDrink.name}}</h2>
+            <input
+                class="btn btn-success"
+                type=""
+                value="Add to favorites"
+            >
+            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="true" autocomplete="off">
+                {%if %}
+                 Single toggle
+                 {%else%}
+                 UnFav
+                 {%endif%}
+            </button>
+            {%if tikiDrink.owner%}
+            <h4>Last Updated: {{tikiDrink.lastUpdated}}</h4>
+            {%else%}
+            <h4>Original creator: {{tikiDrink.ogCreator}}</h4>
+            {%endif%}
+            
+            <h4>{{tikiDrink.ingredient[0]}} {{tikiDrink.ingredient[1]}}</h4>
+            <h4>{{tikiDrink.ingredient[2]}} {{tikiDrink.ingredient[3]}}</h4>
+            <h4>{{tikiDrink.ingredient[4]}} {{tikiDrink.ingredient[5]}}</h4>
+            <h4>{{tikiDrink.ingredient[6]}} {{tikiDrink.ingredient[7]}}</h4>
+            <h4>{{tikiDrink.ingredient[8]}} {{tikiDrink.ingredient[9]}}</h4>
+            <h4>{{tikiDrink.ingredient[10]}} {{tikiDrink.ingredient[11]}}</h4>
+            <h4>{{tikiDrink.garnish[0]}} {{tikiDrink.garnish[1]}}</h4>
+            <h4>{{tikiDrink.glassware}}</h4>
+            <h4>{{tikiDrink.prepInstruct[0]}} {{tikiDrink.prepInstruct[1]}} {{tikiDrink.prepInstruct[2]}} {{tikiDrink.prepInstruct[3]}}</h4>
+            {% if tikiDrink.owner == userId %}
+                <div class="btn-group">
+                    {%- comment -%} first button will send us to the edit page {%- endcomment -%}
+                    <a class="btn btn-primary" href="/tikiDrink/edit/{{tikiDrink.id}}">Update</a>
+                    {%- comment -%} the second button(which will actually be a form, will send a DELETE request) {%- endcomment -%}
+                    <form action="/tikiDrink/{{tikiDrink.id}}?_method=DELETE" method="POST" id="favBut">
+                        <input class="btn btn-danger" type="submit" value="Remove">
+                        {%- comment -%} {%if(favBut.clicked) %} {%- endcomment -%}
+
+                    </form>
+                </div>
+            {% endif %}
+        </article>
+        <hr>
+        {%- comment -%} <h4>Comments</h4>
+        <hr>
+        {% if loggedIn %}
+            <div class="col-md-6">
+                <form action="/comments/{{tikiDrink.id}}" method="POST">
+                    <fieldset>
+                        <legend>Add to favs</legend>
+                        <label class="form-label">comment:</label>
+                        <input class="form-control mb-2" type="text" placeholder="enter your comment..." name="note" required>
+                    </fieldset>
+                    <input class="btn btn-success" type="submit" value="add comment">
+                </form>
+            </div>
+        {% else %}
+            <div class="col-md-6">
+                <small>If you'd like to leave a comment, please log in...</small>
+            </div>
+        {% endif %}
+        <hr>
+        {% if tikiDrink.comments.length > 0%}
+            <div class="container-sm justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    {% for comment in tikiDrink.comments %}
+                        {% render '../comment.liquid', comment: comment, userId: userId, tikiDrink: tikiDrink %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% else %}
+            <small>no comments as of yet...</small>
+        {% endif %} {%- endcomment -%}
+    </div>
+{% endblock %}

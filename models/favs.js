@@ -1,10 +1,32 @@
-///////////////////////////////////////////////////////////
-// Import Dependencies
-///////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////
+// // Our Models
+// ////////////////////////////////////////////////
+// const mongoose = require('./connection')
+// const User = require('./user')
 
-// we're going to pull the Schema and model from mongoose
-// we'll use a syntax called "destructuring"
+// const { Schema, model } = mongoose
 
-//////////////////////////////////////////////////
-// Export our schema
-//////////////////////////////////////////////////
+// // Make favs schema
+
+// const favsSchema = new Schema({
+//     name: String,
+//     ingredient: [String],
+//     garnish: [String],
+//     glassware: String,
+//     prepInstr: [String],
+//     owner: {
+//        // here we can refer to an objectId
+//        // by declaring that as the type
+//        type: Schema.Types.ObjectId,
+//        // this line, tells us to refer to the User model
+//       ref: 'User'
+//     },
+// }, {timestamps: true })
+
+// // make tikiDrink model
+// const TikiDrink = model("TikiDrink", tikiDrinkSchema)
+
+// ///////////////////////////////////////////////////
+// // Export Model
+// ///////////////////////////////////////////////////
+// module.exports = TikiDrink
