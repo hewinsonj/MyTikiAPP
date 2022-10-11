@@ -27,19 +27,42 @@ router.post('/signup', async (req, res) => {
         req.body.password,
         await bcrypt.genSalt(10)
     )
-    console.log('req.body after hash', req.body)
-    // create a new user
-    User.create(req.body)
+    if(req.body.age >20 ){
+        User.create(req.body)
+    }
         // if successful, console log the user(for now)
         .then(user => {
+            if(user.age < 21){
+                res.redirect('/users/denied')
+            }else{
             console.log(user)
             res.redirect('/users/login')
+            }
+            .catch(err => {
+                res.redirect(`/error?error=user%20already%20exists`)
+            })
         })
-        // if an error occurs, log the error
-        .catch(err => {
-            res.redirect(`/error?error=user%20already%20exists`)
-        })
+
 })
+
+// GET
+// SENDS to the denied page
+router.get('/denied', (req, res) => {
+    // const username = req.session.username
+    // const loggedIn = req.session.loggedIn
+    // const userId = req.session.userId
+    res.render('users/denied')
+
+})
+
+// // DELETE route for log out 
+// router.delete('/denied', (req, res) => {
+
+//     User.findOneAndRemove({_id: req.params.id}
+//     .then(user =>{
+//     res.redirect('/denied')
+//     })
+// })
 
 // GET route for logging in
 // renders a page with a signup form
@@ -80,6 +103,9 @@ router.post('/login', async (req, res) => {
             res.redirect(`/error?error=${err}`)
         })
 })
+
+
+
 
 // GET
 // SENDS to the logout page

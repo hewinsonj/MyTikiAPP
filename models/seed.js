@@ -18,6 +18,7 @@ db.on('open', () => {
         garnish: ["Pineapple wedge", "1 piece"],
         glassware: "Pearl Diver",
         prepInstruct: ["Add ingredients to shaker tin", "shake until dilluted", "dirty dump", "top with fresh pebble ice", "place pineapple wedge on side of glass", "add straw and serve!"],
+        fav: true
         },
         { name: "Grog",
         ogCreator: "Donn Beach",
@@ -39,6 +40,7 @@ db.on('open', () => {
         garnish: ["Pineapple wedge", "1 piece", "Mint Sprig"],
         glassware: "Tall Collins",
         prepInstruct: ["Add ingredients to shaker tin", "shake until dilluted", "dirty dump", "top with fresh pebble ice", "place pineapple wedge on side of glass", "nestle mint sprig next to pineapple wedge", "add straw and serve!"],
+        fav: true
         }
       ]
       // Delete every drink in DB

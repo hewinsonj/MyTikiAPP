@@ -3,18 +3,13 @@
     <div class="container-md">
         <article>
             <h2>{{tikiDrink.name}}</h2>
-            <input
-                class="btn btn-success"
-                type=""
-                value="Add to favorites"
-            >
-            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="true" autocomplete="off">
-                {%if %}
-                 Single toggle
-                 {%else%}
-                 UnFav
-                 {%endif%}
-            </button>
+
+            {%if tikiDrink.fav%}
+                <button onclick="favDrink()" type="button" class="btn btn-primary" data-bs-toggle="button" aria-pressed="true" autocomplete="off" id="favBut">Unfav </button>
+            {%else%}
+                <button onclick="favDrink()" type="button" class="btn btn-primary" data-bs-toggle="button" aria-pressed="false" autocomplete="off" id="favBut">Fav </button>
+            {%endif%}
+
             {%if tikiDrink.owner%}
             <h4>Last Updated: {{tikiDrink.lastUpdated}}</h4>
             {%else%}
@@ -44,35 +39,5 @@
             {% endif %}
         </article>
         <hr>
-        {%- comment -%} <h4>Comments</h4>
-        <hr>
-        {% if loggedIn %}
-            <div class="col-md-6">
-                <form action="/comments/{{tikiDrink.id}}" method="POST">
-                    <fieldset>
-                        <legend>Add to favs</legend>
-                        <label class="form-label">comment:</label>
-                        <input class="form-control mb-2" type="text" placeholder="enter your comment..." name="note" required>
-                    </fieldset>
-                    <input class="btn btn-success" type="submit" value="add comment">
-                </form>
-            </div>
-        {% else %}
-            <div class="col-md-6">
-                <small>If you'd like to leave a comment, please log in...</small>
-            </div>
-        {% endif %}
-        <hr>
-        {% if tikiDrink.comments.length > 0%}
-            <div class="container-sm justify-content-center">
-                <div class="col-md-8 col-lg-6">
-                    {% for comment in tikiDrink.comments %}
-                        {% render '../comment.liquid', comment: comment, userId: userId, tikiDrink: tikiDrink %}
-                    {% endfor %}
-                </div>
-            </div>
-        {% else %}
-            <small>no comments as of yet...</small>
-        {% endif %} {%- endcomment -%}
     </div>
 {% endblock %}

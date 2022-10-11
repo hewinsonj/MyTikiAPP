@@ -64,6 +64,30 @@ router.post("/", (req, res) => {
 router.get('/mine', (req, res) => {
     // find the drinks, by ownership
     TikiDrink.find({ owner: req.session.userId })
+    
+        // we want to adjust req.body so that the author is automatically assigned
+   
+    // then display the drinks
+        .then(tikiDrink => {
+            const username = req.session.username
+            const loggedIn = req.session.loggedIn
+            const userId = req.session.userId
+            if (req.session.loggedIn) {
+            res.render('tikiDrink/index', { tikiDrink, username, loggedIn, userId })
+            } else{
+                res.redirect(`/error?error=must%20log%20in%20to%20continue`)
+            }
+        })
+    // or throw an error if there is one
+        .catch(err => res.redirect(`/error?error=${err}`))
+})
+
+// GET request
+// only drinks FAVORITED by user
+// we're going to build another route, that is owner specific, to list all the drinks owned by a certain(logged in) user
+router.get('/favs', (req, res) => {
+    // find the drinks, by favorship
+    TikiDrink.find({ fav: true })
     // then display the drinks
         .then(tikiDrink => {
             const username = req.session.username
@@ -74,6 +98,7 @@ router.get('/mine', (req, res) => {
     // or throw an error if there is one
         .catch(err => res.redirect(`/error?error=${err}`))
 })
+
 
 // GET request to show the update page
 router.get("/edit/:id", (req, res) => {
@@ -102,12 +127,9 @@ router.put("/:id", (req, res) => {
     console.log('req.body after changing checkbox value', req.body)
     TikiDrink.findById(id)
         .then(tikiDrink => {
-            //tikiDrink.fav == true
-            //tikiDrink.updateOne(tikiDrink.fav == true)
             if (tikiDrink.owner == req.session.userId) {
-                // must return the results of this query
-                // var newId2 = new mongoose.mongo.ObjectId();
                 return tikiDrink.updateOne(req.body)
+                
             } else {
                 res.sendStatus(401)
             }
@@ -149,14 +171,23 @@ router.get("/:id", (req, res) => {
         // we can also populate fields of our subdocuments
         //.populate("comments.author", "username")
         //const favB = button.findById("favButt")
+        
         .then(tikiDrink => {
-            $(favB).button('toggle')
+            
             const username = req.session.username
             const loggedIn = req.session.loggedIn
             const userId = req.session.userId
             res.render('tikiDrink/show', { tikiDrink, username, loggedIn, userId })
         })
         .catch(err => res.redirect(`/error?error=${err}`))
+})
+
+// SENDS to the logout page
+router.get('/tikiDrink/favs', (req, res) => {
+    const username = req.session.username
+    const loggedIn = req.session.loggedIn
+    const userId = req.session.userId
+    res.render('/tikiDrink/favs', { username, loggedIn, userId})
 })
 
 //////////////////////////////////////////
