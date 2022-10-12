@@ -29,19 +29,22 @@ router.post('/signup', async (req, res) => {
     )
     if(req.body.age >20 ){
         User.create(req.body)
-    }
+    
         // if successful, console log the user(for now)
         .then(user => {
-            if(user.age < 21){
-                res.redirect('/users/denied')
-            }else{
+            //if(user.age < 21){
+                
+            //}else{
             console.log(user)
             res.redirect('/users/login')
-            }
+           // }
             .catch(err => {
                 res.redirect(`/error?error=user%20already%20exists`)
             })
         })
+    }else{
+        res.redirect('/users/denied')
+    }
 
 })
 

@@ -6,7 +6,10 @@
         {%- comment -%} add values to input fields {%- endcomment -%}
         {%- comment -%} add a back button {%- endcomment -%}
         <form action="/tikiDrink/{{tikiDrink.id}}?_method=PUT" method="POST">
-            <fieldset>
+
+        <button onclick="addBox()" type="button"  class="btn btn-primary" data-bs-toggle="button" aria-pressed="false" autocomplete="off" id="addIng">Add Ingredient </button>
+
+            <fieldset id="field">
                 <legend>Edit {{tikiDrink.name}}</legend>
                 <label class="form-label">Name: </label>
                 <input
@@ -30,8 +33,18 @@
                     type="text"
                     name="ingredient"
                     placeholder="ingredient"
-                    value="{{ tikiDrink.ingredient }}"
+                    value="{{ tikiDrink.ingredient[0] }}"
                 >
+                {%if tikiDrink.ingredient[1]%}
+                <label class="form-label">Ingredient: </label>
+                <input
+                    class="form-control"
+                    type="text"
+                    name="ingredient"
+                    placeholder="ingredient"
+                    value="{{ tikiDrink.ingredient[1] }}"
+                >
+                {%endif%}
                 <label class="form-label">Garnish: </label>
                 <input
                     class="form-control"
@@ -62,4 +75,36 @@
         </form>
     </div>
 
+<script>
+    const field = document.getElementById("field")
+
+    document.addEventListener('DOMContentLoaded', () => {
+    forEach("{{tikiDrink.ingredient}}" => {
+    const inputBox = document.createElement('input')
+    const inputLabel = document.createElement('label')
+    inputLabel.innerText = "Ingredient"
+    inputLabel.classList.add("form-label")
+    inputBox.value = "{{tikiDrink.ingredient}}"
+    inputBox.classList.add("form-control")
+    inputBox.name = "ingredient"
+    field.appendChild(inputLabel)
+    field.appendChild(inputBox)
+    })
+    }
+    
+    const addBox = () => {
+    const inputBox = document.createElement('input')
+    const inputLabel = document.createElement('label')
+    inputLabel.innerText = "Ingredient"
+    inputLabel.classList.add("form-label")
+    inputBox.placeholder = "put stuff here"
+    inputBox.classList.add("form-control")
+    inputBox.name = "ingredient"
+    field.appendChild(inputLabel)
+    field.appendChild(inputBox)
+    }
+    
+    </script>
+
 {% endblock %}
+

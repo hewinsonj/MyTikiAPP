@@ -173,7 +173,6 @@ router.get("/:id", (req, res) => {
         //const favB = button.findById("favButt")
         
         .then(tikiDrink => {
-            
             const username = req.session.username
             const loggedIn = req.session.loggedIn
             const userId = req.session.userId
