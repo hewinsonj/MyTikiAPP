@@ -3,21 +3,44 @@
     <div class="container-md">
         <article>
             <h2>{{tikiDrink.name}}</h2>
-
-            {%if tikiDrink.fav%}
-                <button onclick="favDrink()" type="button" class="btn btn-primary" data-bs-toggle="button" aria-pressed="true" autocomplete="off" id="favBut">Unfav </button>
+            {%if tikiDrink.owner%}
             {%else%}
-                <button onclick="favDrink()" type="button" class="btn btn-primary" data-bs-toggle="button" aria-pressed="false" autocomplete="off" id="favBut">Fav </button>
+                {%if tikiDrink.fav%}
+                <a  {% if tikiDrink.fav = true %} {% assign tikiDrink.fav = false %} {% endif %}class="btn btn-primary" id="favBut" href="/tikiDrink/favs">Unfav</a>
+                {%else%}
+                    <a  {% if tikiDrink.fav = false %} {% assign tikiDrink.fav = true %} {% endif %}class="btn btn-primary" id="favBut" href="/tikiDrink/favs">Fav</a>
+                {%endif%}
             {%endif%}
+
+
+
 
             {%if tikiDrink.owner%}
             <h4>Last Updated: {{tikiDrink.lastUpdated}}</h4>
             {%else%}
             <h4>Original creator: {{tikiDrink.ogCreator}}</h4>
             {%endif%}
-            
-            <h4>{{tikiDrink.ingredient[0]}} {{tikiDrink.ingredient[1]}}</h4>
-            <h4>{{tikiDrink.ingredient[2]}} {{tikiDrink.ingredient[3]}}</h4>
+
+            {%- comment -%} {% for i in test limit:2 %}
+             {{  createBox()  }}
+            {% endfor%} {%- endcomment -%}
+            {%- comment -%} {%const ing = tikiDrink.ingredients %}
+            {% for i in ing.length %}
+            {{ forloop.index0}}
+                {%const inputBox = document.createElement('input')  %}
+                {%const inputLabel = document.createElement('label')    %}
+                {%inputLabel.innerText = "Ingredient"   %}
+                {%inputLabel.classList.add("form-label")    %}
+                {%inputBox.value = "{{tikiDrink.ingredients}}"   %}
+                {%inputBox.classList.add("form-control")    %}
+                {%inputBox.name = "ingredients"  %}
+                {%field.appendChild(inputLabel) %}
+                {%field.appendChild(inputBox)   %}
+            {% endfor %} {%- endcomment -%}
+
+
+            <h4>{{tikiDrink.ingredients[1]}}</h4>
+            <h4>{{tikiDrink.ingredient[3]}} {{tikiDrink.ingredient[3]}}</h4>
             <h4>{{tikiDrink.ingredient[4]}} {{tikiDrink.ingredient[5]}}</h4>
             <h4>{{tikiDrink.ingredient[6]}} {{tikiDrink.ingredient[7]}}</h4>
             <h4>{{tikiDrink.ingredient[8]}} {{tikiDrink.ingredient[9]}}</h4>
@@ -27,17 +50,29 @@
             <h4>{{tikiDrink.prepInstruct[0]}} {{tikiDrink.prepInstruct[1]}} {{tikiDrink.prepInstruct[2]}} {{tikiDrink.prepInstruct[3]}}</h4>
             {% if tikiDrink.owner == userId %}
                 <div class="btn-group">
-                    {%- comment -%} first button will send us to the edit page {%- endcomment -%}
                     <a class="btn btn-primary" href="/tikiDrink/edit/{{tikiDrink.id}}">Update</a>
-                    {%- comment -%} the second button(which will actually be a form, will send a DELETE request) {%- endcomment -%}
                     <form action="/tikiDrink/{{tikiDrink.id}}?_method=DELETE" method="POST" id="favBut">
                         <input class="btn btn-danger" type="submit" value="Remove">
-                        {%- comment -%} {%if(favBut.clicked) %} {%- endcomment -%}
-
                     </form>
                 </div>
+            {%else%}
+                <a class="btn btn-primary" href="/tikiDrink/customize/{{tikiDrink.id}}">Customize</a>
             {% endif %}
         </article>
         <hr>
     </div>
+    <script>
+
+    const createBox = () => {
+    const inputBox = document.createElement('input')
+    const inputLabel = document.createElement('label')
+    inputLabel.innerText = "Ingredient"
+    inputLabel.classList.add("form-label")
+    inputBox.value = "{{tikiDrink.ingredient}}"
+    inputBox.classList.add("form-control")
+    inputBox.name = "ingredient"
+    field.appendChild(inputLabel)
+    field.appendChild(inputBox)
+    }
+    </script>
 {% endblock %}

@@ -38,6 +38,25 @@ router.get('/new', (req, res) => {
     res.render('tikiDrink/new', { username, loggedIn, userId })
 })
 
+// GET request to show the customize page
+router.get("/customize/:id", (req, res) => {
+    const username = req.session.username
+    const loggedIn = req.session.loggedIn
+    const userId = req.session.userId
+    const tikiDrinkId = req.params.id
+    TikiDrink.findById(tikiDrinkId)
+        // render the edit form if there is a drink
+        .then(tikiDrink => {
+
+            res.render('tikiDrink/customize', { tikiDrink, username, loggedIn, userId })
+        })
+        // redirect if there isn't
+        .catch(err => {
+            res.redirect(`/error?error=${err}`)
+        })
+    // res.send('edit page')
+})
+
 // POST request
 // create route -> gives the ability to create new drinks
 router.post("/", (req, res) => {
@@ -124,6 +143,9 @@ router.get("/edit/:id", (req, res) => {
 router.put("/:id", (req, res) => {
     console.log("req.body initially", req.body)
     const id = req.params.id
+    const ingredArr = req.body.ingredient.split(",")
+    req.body.ingredients = ingredArr
+     
     console.log('req.body after changing checkbox value', req.body)
     TikiDrink.findById(id)
         .then(tikiDrink => {
@@ -151,7 +173,7 @@ router.delete('/:id', (req, res) => {
     TikiDrink.findByIdAndRemove(tikiDrinkId)
         .then(tikiDrink => {
             // if the delete is successful, send the user back to the index page
-            res.redirect('/tikiDrink')
+            res.redirect('/tikiDrink/mine')
         })
         .catch(err => {
             res.redirect(`/error?error=${err}`)
@@ -181,11 +203,13 @@ router.get("/:id", (req, res) => {
         .catch(err => res.redirect(`/error?error=${err}`))
 })
 
-// SENDS to the logout page
+// SENDS to page
 router.get('/tikiDrink/favs', (req, res) => {
     const username = req.session.username
     const loggedIn = req.session.loggedIn
     const userId = req.session.userId
+    //return (tikiDrink.fav ? true : false)
+
     res.render('/tikiDrink/favs', { username, loggedIn, userId})
 })
 

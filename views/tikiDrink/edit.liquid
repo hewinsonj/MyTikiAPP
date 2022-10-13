@@ -7,35 +7,40 @@
         {%- comment -%} add a back button {%- endcomment -%}
         <form action="/tikiDrink/{{tikiDrink.id}}?_method=PUT" method="POST">
 
-        <button onclick="addBox()" type="button"  class="btn btn-primary" data-bs-toggle="button" aria-pressed="false" autocomplete="off" id="addIng">Add Ingredient </button>
+        
 
             <fieldset id="field">
                 <legend>Edit {{tikiDrink.name}}</legend>
-                <label class="form-label">Name: </label>
+                <button onclick="addBox()" type="button"  class="btn btn-primary" data-bs-toggle="button" aria-pressed="false" autocomplete="off" id="addIng">Add Ingredient </button>
+            <div>
+                <div class="inputLine">
+                    <label class="form-label">Name:</label>
+                     <input
+                        class="form-control"
+                        type="text"
+                        name="name"
+                        placeholder="Enter the name of the drink"
+                        value="{{ tikiDrink.name }}"
+                      >
+                </div>
                 <input
-                    class="form-control"
-                    type="text"
-                    name="name"
-                    placeholder="Enter the name of the drink"
-                    value="{{ tikiDrink.name }}"
-                >
-                <label class="form-label">Last Updated: </label>
-                <input
+                    style="display: none;"
                     class="form-control"
                     type="text"
                     name="lastUpdated"
-                    placeholder="00/00/00"
-                    value= {{tikiDrink.lastUpdated}}
-                >
-                <label class="form-label">Ingredient: </label>
-                <input
-                    class="form-control"
-                    type="text"
-                    name="ingredient"
-                    placeholder="ingredient"
-                    value="{{ tikiDrink.ingredient[0] }}"
-                >
-                {%if tikiDrink.ingredient[1]%}
+                    value={{ "now" | date: "%m-%d-%Y" }}
+                > 
+                <div class="inputLine">
+                     <label class="form-label">Ingredient: </label>
+                     <input
+                            class="form-control"
+                            type="text"
+                           name="ingredient"
+                           placeholder="ingredient"
+                           value="{{ tikiDrink.ingredient[1] }}"
+                    >
+                </div>
+                {%- comment -%} {%if tikiDrink.ingredient[1]%}
                 <label class="form-label">Ingredient: </label>
                 <input
                     class="form-control"
@@ -44,28 +49,35 @@
                     placeholder="ingredient"
                     value="{{ tikiDrink.ingredient[1] }}"
                 >
-                {%endif%}
-                <label class="form-label">Garnish: </label>
-                <input
-                    class="form-control"
-                    type="text"
-                    name="garnish"
-                    value="{{ tikiDrink.garnish }}"
-                >
-                <label class="form-label">Glassware: </label>
-                <input
-                    class="form-control"
-                    type="text"
-                    name="glassware"
-                    value="{{ tikiDrink.glassware }}"
-                >
-                <label class="form-label">Prep Instructions: </label>
-                <input
-                    class="form-control"
-                    type="text"
-                    name="prepInstruct"
-                    value="{{ tikiDrink.prepInstruct[0] }}"
-                >
+                {%endif%} {%- endcomment -%}
+                <div class="inputLine">
+                      <label class="form-label">Garnish: </label>
+                      <input
+                          class="form-control"
+                         type="text"
+                          name="garnish"
+                         value="{{ tikiDrink.garnish }}"
+                      >
+                </div>
+                <div class="inputLine">
+                      <label class="form-label">Glassware: </label>
+                      <input
+                          class="form-control"
+                          type="text"
+                          name="glassware"
+                          value="{{ tikiDrink.glassware }}"
+                      >
+                </div>
+                <div class="inputLine">
+                      <label class="form-label">Prep Instructions: </label>
+                      <input
+                          class="form-control"
+                          type="text"
+                          name="prepInstruct"
+                          value="{{ tikiDrink.prepInstruct[0] }}"
+                      >
+                </div>
+            </div>
             </fieldset>
             <input
                 class="btn btn-success"
@@ -77,20 +89,24 @@
 
 <script>
     const field = document.getElementById("field")
+    //const ingredient = "{{tikiDrink.ingredient}}"
 
-    document.addEventListener('DOMContentLoaded', () => {
-    forEach("{{tikiDrink.ingredient}}" => {
-    const inputBox = document.createElement('input')
-    const inputLabel = document.createElement('label')
-    inputLabel.innerText = "Ingredient"
-    inputLabel.classList.add("form-label")
-    inputBox.value = "{{tikiDrink.ingredient}}"
-    inputBox.classList.add("form-control")
-    inputBox.name = "ingredient"
-    field.appendChild(inputLabel)
-    field.appendChild(inputBox)
-    })
-    }
+    //document.addEventListener('DOMContentLoaded', () => {
+    //ingredient.forEach(createBox())
+    //}
+
+    //const createBox = () => {
+    //const inputBox = document.createElement('input')
+    //const inputLabel = document.createElement('label')
+    //inputLabel.innerText = "Ingredient"
+    //inputLabel.classList.add("form-label")
+    //inputBox.value = "{{tikiDrink.ingredient}}"
+    //inputBox.classList.add("form-control")
+    //inputBox.name = "ingredient"
+    //field.appendChild(inputLabel)
+    //field.appendChild(inputBox)
+    //}
+    
     
     const addBox = () => {
     const inputBox = document.createElement('input')

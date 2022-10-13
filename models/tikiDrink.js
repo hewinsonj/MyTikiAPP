@@ -12,11 +12,12 @@ const tikiDrinkSchema = new Schema({
     name: String,
     ogCreator: String,
     lastUpdated: String,
-    ingredient: [String],
+    ingredient: String,
     garnish: [String],
     glassware: String,
     prepInstruct: [String],
     fav: Boolean,
+    ingredients: [],
     owner: {
        // here we can refer to an objectId
        // by declaring that as the type

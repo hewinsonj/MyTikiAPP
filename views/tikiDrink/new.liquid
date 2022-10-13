@@ -15,14 +15,15 @@
                     placeholder="Enter the name of the drink"
                     value="{{ tikiDrink.name }}"
                 >
-                <label class="form-label">Last Updated: </label>
+                
                 <input
+                    style="display: none;"
                     class="form-control"
                     type="text"
                     name="lastUpdated"
-                    placeholder="00/00/00"
-                    value="{{ tikiDrink.lastUpdated }}"
-                >
+                    value={{ "now" | date: "%m-%d-%Y" }}
+                > 
+                
                 <label class="form-label">Ingredient: </label>
                 <input
                     class="form-control"
