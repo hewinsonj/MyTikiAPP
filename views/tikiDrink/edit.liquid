@@ -30,6 +30,7 @@
                     name="lastUpdated"
                     value={{ "now" | date: "%m-%d-%Y" }}
                 > 
+
                 <div class="inputLine">
                      <label class="form-label">Ingredient: </label>
                      <input
@@ -37,9 +38,10 @@
                             type="text"
                            name="ingredient"
                            placeholder="ingredient"
-                           value="{{ tikiDrink.ingredient[1] }}"
+                           value="{{ tikiDrink.ingredient }}"
                     >
                 </div>
+
                 {%- comment -%} {%if tikiDrink.ingredient[1]%}
                 <label class="form-label">Ingredient: </label>
                 <input
@@ -53,12 +55,13 @@
                 <div class="inputLine">
                       <label class="form-label">Garnish: </label>
                       <input
-                          class="form-control"
-                         type="text"
-                          name="garnish"
-                         value="{{ tikiDrink.garnish }}"
+                        class="form-control"
+                        type="text"
+                        name="garnish"
+                        value="{{ tikiDrink.garnish }}"
                       >
                 </div>
+
                 <div class="inputLine">
                       <label class="form-label">Glassware: </label>
                       <input
@@ -68,6 +71,7 @@
                           value="{{ tikiDrink.glassware }}"
                       >
                 </div>
+
                 <div class="inputLine">
                       <label class="form-label">Prep Instructions: </label>
                       <input
@@ -77,6 +81,7 @@
                           value="{{ tikiDrink.prepInstruct[0] }}"
                       >
                 </div>
+ 
             </div>
             </fieldset>
             <input
@@ -88,7 +93,7 @@
     </div>
 
 <script>
-    const field = document.getElementById("field")
+
     //const ingredient = "{{tikiDrink.ingredient}}"
 
     //document.addEventListener('DOMContentLoaded', () => {
@@ -107,7 +112,7 @@
     //field.appendChild(inputBox)
     //}
     
-    
+    const field = document.getElementById("field") 
     const addBox = () => {
     const inputBox = document.createElement('input')
     const inputLabel = document.createElement('label')
@@ -119,8 +124,8 @@
     field.appendChild(inputLabel)
     field.appendChild(inputBox)
     }
-    
     </script>
+
 
 {% endblock %}
 

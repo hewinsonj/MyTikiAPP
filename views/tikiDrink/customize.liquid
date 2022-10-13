@@ -11,14 +11,16 @@
                 <legend>Customize {{tikiDrink.name}}</legend>
                     <button onclick="addBox()" type="button"  class="btn btn-primary" data-bs-toggle="button" aria-pressed="false" autocomplete="off" id="addIng">Add Ingredient </button>
             <div>
-                <label class="form-label">Name: </label>
-                <input
-                    class="form-control"
-                    type="text"
-                    name="name"
-                    placeholder="Enter the name of the drink"
-                    value="{{ tikiDrink.name }}"
-                >
+                <div class="inputLine">
+                    <label class="form-label">Name:</label>
+                     <input
+                        class="form-control"
+                        type="text"
+                        name="name"
+                        placeholder="Enter the name of the drink"
+                        value="{{ tikiDrink.name }}"
+                      >
+                </div>
                 <input
                     style="display: none;"
                     class="form-control"
@@ -26,45 +28,51 @@
                     name="lastUpdated"
                     value={{ "now" | date: "%m-%d-%Y" }}
                 > 
-                <label class="form-label">Ingredient: </label>
-                <input
-                    class="form-control"
-                    type="text"
-                    name="ingredient"
-                    placeholder="ingredient"
-                    value="{{ tikiDrink.ingredient }}"
-                >
-                {%- comment -%} {%if tikiDrink.ingredient[1]%}
-                <label class="form-label">Ingredient: </label>
-                <input
-                    class="form-control"
-                    type="text"
-                    name="ingredient"
-                    placeholder="ingredient"
-                    value="{{ tikiDrink.ingredient[1] }}"
-                >
-                {%endif%} {%- endcomment -%}
-                <label class="form-label">Garnish: </label>
-                <input
-                    class="form-control"
-                    type="text"
-                    name="garnish"
-                    value="{{ tikiDrink.garnish }}"
-                >
-                <label class="form-label">Glassware: </label>
-                <input
-                    class="form-control"
-                    type="text"
-                    name="glassware"
-                    value="{{ tikiDrink.glassware }}"
-                >
-                <label class="form-label">Prep Instructions: </label>
-                <input
-                    class="form-control"
-                    type="text"
-                    name="prepInstruct"
-                    value="{{ tikiDrink.prepInstruct[0] }}"
-                >
+            {% for ingredients in tikiDrink.ingredients %}
+ 
+                <div class="inputLine">
+                     <label class="form-label">Ingredient: </label>
+                     <input
+                            class="form-control"
+                            type="text"
+                           name="ingredient"
+                           placeholder="ingredient"
+                           value="{{ingredients}}"
+                    >
+                </div>
+            {% endfor %}
+            {% for garnishes in tikiDrink.garnishes %}
+                <div class="inputLine">
+                      <label class="form-label">Garnish: </label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        name="garnish"
+                        value="{{ garnishes}}"
+                      >
+                </div>
+            {%endfor%}
+                <div class="inputLine">
+                      <label class="form-label">Glassware: </label>
+                      <input
+                          class="form-control"
+                          type="text"
+                          name="glassware"
+                          value="{{ tikiDrink.glassware }}"
+                      >
+                </div>
+            {% for prepInstructs in tikiDrink.prepInstructs %}
+                <div class="inputLine">
+                      <label class="form-label">Prep Instructions: </label>
+                      <input
+                          class="form-control"
+                          type="text"
+                          name="prepInstruct"
+                          value="{{ prepInstructs }}"
+                      >
+                </div>
+            {%endfor%}
+
             </div>
             </fieldset>
             <input

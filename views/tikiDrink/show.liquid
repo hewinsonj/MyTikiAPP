@@ -3,17 +3,46 @@
     <div class="container-md">
         <article>
             <h2>{{tikiDrink.name}}</h2>
-            {%if tikiDrink.owner%}
-            {%else%}
-                {%if tikiDrink.fav%}
-                <a  {% if tikiDrink.fav = true %} {% assign tikiDrink.fav = false %} {% endif %}class="btn btn-primary" id="favBut" href="/tikiDrink/favs">Unfav</a>
-                {%else%}
-                    <a  {% if tikiDrink.fav = false %} {% assign tikiDrink.fav = true %} {% endif %}class="btn btn-primary" id="favBut" href="/tikiDrink/favs">Fav</a>
-                {%endif%}
-            {%endif%}
+            {%- comment -%} {%if tikiDrink.owner%}
+            {%else%} {%- endcomment -%}
+                <form action="/tikiDrink/{{tikiDrink.id}}?_method=PUT" method="POST">
+                <fieldset>
+                    {%if tikiDrink.fav%}
+                    <input
+                    style="display: none;"
+                    class="form-check-input"
+                    type="checkbox"
+                    name="fav"
+                    >
+                </fieldset>
+                    <input
+                        class="btn btn-success"
+                        type="submit"
+                        value="Unfavorite"
+                    >                
+                </form>
+                    {%else%}                 
+                <form action="/tikiDrink/{{tikiDrink.id}}_method=PUT" method="POST">
+                 <fieldset>
+                    <input
+                    style="display: none;"
+                    class="form-check-input"
+                    type="checkbox"
+                    name="fav"
+                    checked
+                    >
+                </fieldset>
+                <input
+                        class="btn btn-success"
+                        type="submit"
+                        value="Favorite"
+                    > 
+                    {%endif%}
+                </form>
+            {%- comment -%} {%endif%} {%- endcomment -%}
 
-
-
+{%- comment -%} {% if tikiDrink.fav = true %} {% assign tikiDrink.fav = false %} {% endif %}
+{% if tikiDrink.fav = false %} {% assign tikiDrink.fav = true %} {% endif %} {%- endcomment -%}
 
             {%if tikiDrink.owner%}
             <h4>Last Updated: {{tikiDrink.lastUpdated}}</h4>
@@ -21,33 +50,20 @@
             <h4>Original creator: {{tikiDrink.ogCreator}}</h4>
             {%endif%}
 
-            {%- comment -%} {% for i in test limit:2 %}
-             {{  createBox()  }}
-            {% endfor%} {%- endcomment -%}
-            {%- comment -%} {%const ing = tikiDrink.ingredients %}
-            {% for i in ing.length %}
-            {{ forloop.index0}}
-                {%const inputBox = document.createElement('input')  %}
-                {%const inputLabel = document.createElement('label')    %}
-                {%inputLabel.innerText = "Ingredient"   %}
-                {%inputLabel.classList.add("form-label")    %}
-                {%inputBox.value = "{{tikiDrink.ingredients}}"   %}
-                {%inputBox.classList.add("form-control")    %}
-                {%inputBox.name = "ingredients"  %}
-                {%field.appendChild(inputLabel) %}
-                {%field.appendChild(inputBox)   %}
-            {% endfor %} {%- endcomment -%}
+            {% for ingredient in tikiDrink.ingredients %}
+                <h4>{{ingredient}}</h4>
+            {% endfor %}  
 
+            {% for garnish in tikiDrink.garnishes %}
+                <h4>{{garnish}}</h4>
+            {% endfor %}
 
-            <h4>{{tikiDrink.ingredients[1]}}</h4>
-            <h4>{{tikiDrink.ingredient[3]}} {{tikiDrink.ingredient[3]}}</h4>
-            <h4>{{tikiDrink.ingredient[4]}} {{tikiDrink.ingredient[5]}}</h4>
-            <h4>{{tikiDrink.ingredient[6]}} {{tikiDrink.ingredient[7]}}</h4>
-            <h4>{{tikiDrink.ingredient[8]}} {{tikiDrink.ingredient[9]}}</h4>
-            <h4>{{tikiDrink.ingredient[10]}} {{tikiDrink.ingredient[11]}}</h4>
-            <h4>{{tikiDrink.garnish[0]}} {{tikiDrink.garnish[1]}}</h4>
             <h4>{{tikiDrink.glassware}}</h4>
-            <h4>{{tikiDrink.prepInstruct[0]}} {{tikiDrink.prepInstruct[1]}} {{tikiDrink.prepInstruct[2]}} {{tikiDrink.prepInstruct[3]}}</h4>
+
+            {% for prepInstruct in tikiDrink.prepInstructs %}
+                <h4>{{prepInstruct}}</h4>
+            {% endfor %} 
+            <h4>{{tikiDrink.ingredient}}</h4>
             {% if tikiDrink.owner == userId %}
                 <div class="btn-group">
                     <a class="btn btn-primary" href="/tikiDrink/edit/{{tikiDrink.id}}">Update</a>
