@@ -17,7 +17,7 @@ const router = express.Router()
 ///index route
 router.get("/", (req, res) => {
     TikiDrink.find({ owner: null })
-        //.populate("comments.author", "username")
+        .populate("comments.author", "username")
         .then(tikiDrink => {
             const username = req.session.username
             const loggedIn = req.session.loggedIn
@@ -28,6 +28,8 @@ router.get("/", (req, res) => {
         .catch(err => res.redirect(`/error?error=${err}`))
 })
 
+
+
 // GET for new tikiDrinks
 // renders the form to create a drink
 router.get('/new', (req, res) => {
@@ -36,7 +38,6 @@ router.get('/new', (req, res) => {
     const userId = req.session.userId
     res.render('tikiDrink/new', { username, loggedIn, userId })
 })
-
 
 
 // POST request
@@ -65,6 +66,7 @@ router.post("/", (req, res) => {
         .catch(err => res.redirect(`/error?error=${err}`))
 })
 
+
 // GET request
 // only drinks owned by logged in user
 // we're going to build another route, that is owner specific, to list all the drinks owned by a certain(logged in) user
@@ -92,7 +94,7 @@ router.get('/mine', (req, res) => {
 // we're going to build another route, that is owner specific, to list all the drinks owned by a certain(logged in) user
 router.get('/favs', (req, res) => {
     // find the drinks, by favorship
-    TikiDrink.find({ fav: true })
+    TikiDrink.find({ fav: true, owner: req.session.userId })
     // then display the drinks
         .then(tikiDrink => {
             const username = req.session.username
@@ -108,6 +110,7 @@ router.get('/favs', (req, res) => {
 // FAVS PUT request
 // update route -> updates a specific drink
 router.put("/fav/:id", (req, res) => {
+    
     console.log("req.body initially", req.body)
     const id = req.params.id
      req.body.fav = req.body.fav === 'on' ? true : false
@@ -117,9 +120,8 @@ router.put("/fav/:id", (req, res) => {
         })
         .then(() => {
             res.redirect(`/tikiDrink/${id}`)
-            
-            console.log(id)
         })
+
         .catch(err => res.redirect(`/error?error=${err}`))
 })
 
@@ -130,6 +132,7 @@ router.get("/edit/:id", (req, res) => {
     const userId = req.session.userId
     const tikiDrinkId = req.params.id
     TikiDrink.findById(tikiDrinkId)
+    .populate("comments.author", "username")
         // render the edit form if there is a drink
         .then(tikiDrink => {
             let ingredientString = ""
@@ -158,7 +161,6 @@ router.put("/:id", (req, res) => {
     const id = req.params.id
     const ingredArr = req.body.ingredients.split(",")
     req.body.ingredients = ingredArr
-    console.log(ingredArr, "<--------")
     req.body.fav = req.body.fav === 'on' ? true : false
     console.log('req.body after changing checkbox value', req.body)
     TikiDrink.findById(id)
@@ -225,10 +227,9 @@ router.get("/:id", (req, res) => {
         // populate will provide more data about the document that is in the specified collection
         // the first arg is the field to populate
         // the second can specify which parts to keep or which to remove
-        // .populate("owner", "username")
+        //.populate("owner", "username")
         // we can also populate fields of our subdocuments
-        //.populate("comments.author", "username")
-        //const favB = button.findById("favButt")
+        .populate("comments.author", "username")
         
         .then(tikiDrink => {
             const username = req.session.username
@@ -240,15 +241,6 @@ router.get("/:id", (req, res) => {
         .catch(err => res.redirect(`/error?error=${err}`))
 })
 
-// SENDS to page
-router.get('/tikiDrink/favs', (req, res) => {
-    const username = req.session.username
-    const loggedIn = req.session.loggedIn
-    const userId = req.session.userId
-    //return (tikiDrink.fav ? true : false)
-    
-    res.render('/tikiDrink/favs', { username, loggedIn, userId})
-})
 
 //////////////////////////////////////////
 // Export the Router

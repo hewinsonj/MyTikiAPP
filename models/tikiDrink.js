@@ -3,6 +3,7 @@
 ////////////////////////////////////////////////
 const mongoose = require('./connection')
 const User = require('./user')
+const commentSchema = require('./comment')
 
 const { Schema, model } = mongoose
 
@@ -10,6 +11,7 @@ const { Schema, model } = mongoose
 
 const tikiDrinkSchema = new Schema({
     name: String,
+    img: String,
     ogCreator: String,
     lastUpdated: String,
     ingredient: String,
@@ -27,16 +29,14 @@ const tikiDrinkSchema = new Schema({
        // this line, tells us to refer to the User model
       ref: 'User'
     },
+    comments: [commentSchema],
     creator: String,
 }, {timestamps: true })
 
 // make zeldaChar model
 const TikiDrink = model("TikiDrink", tikiDrinkSchema)
 // make favs model
-const Favs = model("Favs", tikiDrinkSchema)
-
-///////////////////////////////////////////////////
+//////////////////////////////////////////////////
 // Export Model
 ///////////////////////////////////////////////////
 module.exports = TikiDrink
-module.exports = Favs

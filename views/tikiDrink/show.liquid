@@ -7,6 +7,7 @@
             {%else%} {%- endcomment -%}
                 <form action="/tikiDrink/fav/{{tikiDrink.id}}?_method=PUT" method="POST">
                 <fieldset>
+                {%if tikiDrink.owner %}    
                     {%if tikiDrink.fav%}
                     <input
                     style="display: none;"
@@ -38,6 +39,7 @@
                         value="Favorite"
                     > 
                     {%endif%}
+                {%endif%}    
                 </form>
             {%- comment -%} {%endif%} {%- endcomment -%}
 
@@ -74,20 +76,39 @@
                 <a class="btn btn-primary" href="/tikiDrink/customize/{{tikiDrink.id}}">Customize</a>
             {% endif %}
         </article>
+        {% if tikiDrink.owner%}
         <hr>
-    </div>
-    <script>
+        <h4>Comments</h4>
+        <hr>
+        
+            <div class="col-md-6">
+                <form action="/comments/{{tikiDrink.id}}" method="POST">
+                    <fieldset>
+                        <legend>Add Comment</legend>
+                        <label class="form-label">comment:</label>
+                        <input class="form-control mb-2" type="text" placeholder="enter your comment..." name="note" required>
+                    </fieldset>
+                    <input class="btn btn-success" type="submit" value="add comment">
+                </form>
+            </div>
 
-    const createBox = () => {
-    const inputBox = document.createElement('input')
-    const inputLabel = document.createElement('label')
-    inputLabel.innerText = "Ingredient"
-    inputLabel.classList.add("form-label")
-    inputBox.value = "{{tikiDrink.ingredient}}"
-    inputBox.classList.add("form-control")
-    inputBox.name = "ingredient"
-    field.appendChild(inputLabel)
-    field.appendChild(inputBox)
-    }
-    </script>
+            {%- comment -%} <div class="col-md-6">
+                <small>If you'd like to leave a comment, please log in...</small>
+            </div> {%- endcomment -%}
+        
+        <hr>
+        {% if tikiDrink.comments.length > 0%}
+            <div class="container-sm justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    {% for comment in tikiDrink.comments %}
+                        {% render '../comment.liquid', comment: comment, userId: userId, tikiDrink: tikiDrink %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% else %}
+            <small>no comments as of yet...</small>
+        {% endif %}
+        <hr>
+    {% endif %}
+    </div>
 {% endblock %}

@@ -37,11 +37,11 @@ router.post('/signup', async (req, res) => {
             //}else{
             console.log(user)
             res.redirect('/users/login')
-           // }
+        }) // }
             .catch(err => {
-                res.redirect(`/error?error=user%20already%20exists`)
+                res.redirect(`/error?error=user%20already%20exists${err}`)
             })
-        })
+       
     }else{
         res.redirect('/users/denied')
     }

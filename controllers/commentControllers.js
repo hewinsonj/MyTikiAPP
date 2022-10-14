@@ -24,7 +24,7 @@ router.post("/:tikiDrinkId", (req, res) => {
     } else {
         res.sendStatus(401)
     }
-    // find a specific fruit
+    // find a specific drink
     TikiDrink.findById(tikiDrinkId)
         // do something if it works
         //  --> send a success response status and maybe the comment? maybe the fruit?

@@ -1,0 +1,36 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+    {% if tikiDrink.length > 0%}
+        <div>
+            <div class="row">
+                
+                {% for tikiDrink in tikiDrink %}
+                    <div class="card" style="width: 18rem;">
+                        
+                        <h1 class="card-header" style="text-align: center;" >{{tikiDrink.name}}</h1>
+                        <div class="card-body" style="display: block; text-align: center;">
+                            
+                            {%- comment -%} <p>Last Updated: {{tikiDrink.lastUpdated}}</p> {%- endcomment -%}
+                            
+
+                            {%if tikiDrink.owner%}
+                                <h5>Last Updated: </h5>
+                                <h5> {{tikiDrink.lastUpdated}}</h5>
+
+                            {%else%}
+                                <h5>Original creator: </h5>
+                                <h3 class="card-text"> {{tikiDrink.ogCreator}}</h3>
+                            {%endif%}
+
+                            <a class="btn btn-info" href="/tikiDrink/{{tikiDrink.id}}">
+                                View
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% else %}
+
+    {% endif %}
+{% endblock %}

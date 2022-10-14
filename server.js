@@ -7,7 +7,8 @@ const path = require("path") // import path module
 const TikiDrinkRouter = require('./controllers/tikiDrinkControllers')
 const UserRouter = require('./controllers/userControllers')
 const middleware = require('./utils/middleware')
-//const CommentRouter = require('./controllers/commentControllers')
+const CommentRouter = require('./controllers/commentControllers')
+const SearchRouter = require('./controllers/searchControllers')
 
 /////////////////////////////////////////////////
 // Create our Express Application Object Bind Liquid Templating Engine
@@ -35,7 +36,10 @@ app.get("/", (req, res) => {
 /////////////////////////////////////////////
 app.use('/tikiDrink', TikiDrinkRouter)
 app.use('/users', UserRouter)
-//app.use('/comments', CommentRouter)
+app.use('/comments', CommentRouter)
+app.use('/search', SearchRouter)
+
+
 
 // this renders an error page, gets the error from a url request query
 app.get('/error', (req, res) => {
