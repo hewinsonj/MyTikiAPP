@@ -18,7 +18,6 @@ const router = express.Router()
 router.get("/", (req, res) => {
     TikiDrink.find({ owner: null })
         //.populate("comments.author", "username")
-        
         .then(tikiDrink => {
             const username = req.session.username
             const loggedIn = req.session.loggedIn
@@ -38,29 +37,7 @@ router.get('/new', (req, res) => {
     res.render('tikiDrink/new', { username, loggedIn, userId })
 })
 
-// GET request to show the customize page
-router.get("/customize/:id", (req, res) => {
-    const username = req.session.username
-    const loggedIn = req.session.loggedIn
-    const userId = req.session.userId
-    const tikiDrinkId = req.params.id
-    console.log(ingredients)
-    const ingredient = req.body.ingredients.join(",")
-    req.body.ingredient = ingredient
-    //const ingredArr = req.body.ingredients.join(",")
-    //req.body.ingredient = ingredArr
-    TikiDrink.findById(tikiDrinkId)
-        // render the edit form if there is a drink
-        .then(tikiDrink => {
 
-            res.render('tikiDrink/customize', { tikiDrink, username, loggedIn, userId })
-        })
-        // redirect if there isn't
-        .catch(err => {
-            res.redirect(`/error?error=${err}`)
-        })
-    // res.send('edit page')
-})
 
 // POST request
 // create route -> gives the ability to create new drinks
@@ -69,6 +46,7 @@ router.post("/", (req, res) => {
     // this is going to add ownership, via a foreign key reference, to our drinks
     // basically, all we have to do, is append our request body, with the `owner` field, 
     //and set the value to the logged in user's id
+
     req.body.fav = req.body.fav === 'on' ? true : false
     req.body.owner = req.session.userId
     const ingredArr = req.body.ingredient.split(",")
@@ -81,10 +59,8 @@ router.post("/", (req, res) => {
     // we'll use the mongoose model method `create` to make a new drink
     TikiDrink.create(req.body)
         .then(tikiDrink => {
-            const username = req.session.username
-            const loggedIn = req.session.loggedIn
-            const userId = req.session.userId
-            res.redirect('/tikiDrink')
+
+            res.redirect('/tikiDrink', )
         })
         .catch(err => res.redirect(`/error?error=${err}`))
 })
@@ -95,9 +71,7 @@ router.post("/", (req, res) => {
 router.get('/mine', (req, res) => {
     // find the drinks, by ownership
     TikiDrink.find({ owner: req.session.userId })
-    
         // we want to adjust req.body so that the author is automatically assigned
-   
     // then display the drinks
         .then(tikiDrink => {
             const username = req.session.username
@@ -133,13 +107,10 @@ router.get('/favs', (req, res) => {
 
 // FAVS PUT request
 // update route -> updates a specific drink
-router.put("/:id", (req, res) => {
+router.put("/fav/:id", (req, res) => {
     console.log("req.body initially", req.body)
     const id = req.params.id
-    console.log("this is it", req.params.id)
-    const ingredArr = req.body.ingredient.split(",")
-    req.body.ingredients = ingredArr
-    req.body.fav = req.body.fav === 'on' ? true : false
+     req.body.fav = req.body.fav === 'on' ? true : false
     TikiDrink.findById(id)
         .then(tikiDrink => {
             return tikiDrink.updateOne(req.body)
@@ -161,8 +132,17 @@ router.get("/edit/:id", (req, res) => {
     TikiDrink.findById(tikiDrinkId)
         // render the edit form if there is a drink
         .then(tikiDrink => {
-
-            res.render('tikiDrink/edit', { tikiDrink, username, loggedIn, userId })
+            let ingredientString = ""
+            for(let i = 0; i < tikiDrink.ingredients.length; i ++){
+                if(i == tikiDrink.ingredients.length - 1){
+                    ingredientString += tikiDrink.ingredients[i]
+                } else {
+                    ingredientString += tikiDrink.ingredients[i] + ","
+                }
+                
+            }
+            console.log(ingredientString, "<--------")
+            res.render('tikiDrink/edit', { tikiDrink, username, loggedIn, userId, ingredientString })
         })
         // redirect if there isn't
         .catch(err => {
@@ -176,8 +156,9 @@ router.get("/edit/:id", (req, res) => {
 router.put("/:id", (req, res) => {
     console.log("req.body initially", req.body)
     const id = req.params.id
-    const ingredArr = req.body.ingredient.split(",")
+    const ingredArr = req.body.ingredients.split(",")
     req.body.ingredients = ingredArr
+    console.log(ingredArr, "<--------")
     req.body.fav = req.body.fav === 'on' ? true : false
     console.log('req.body after changing checkbox value', req.body)
     TikiDrink.findById(id)
@@ -197,7 +178,27 @@ router.put("/:id", (req, res) => {
         .catch(err => res.redirect(`/error?error=${err}`))
 })
 
+// GET request to show the customize page
+router.get("/customize/:id", (req, res) => {
+    const username = req.session.username
+    const loggedIn = req.session.loggedIn
+    const userId = req.session.userId
+    const tikiDrinkId = req.params.id
+    // const ingredArr = req.body.ingredient.split(",")
+    // req.body.ingredients = ingredArr
+    // req.body.fav = req.body.fav === 'on' ? true : false
+    TikiDrink.findById(tikiDrinkId)
+        // render the edit form if there is a drink
+        .then(tikiDrink => {
 
+            res.render('tikiDrink/customize', { tikiDrink, username, loggedIn, userId })
+        })
+        // redirect if there isn't
+        .catch(err => {
+            res.redirect(`/error?error=${err}`)
+        })
+    // res.send('edit page')
+})
 
 ///// DELETE Request
 router.delete('/:id', (req, res) => {
@@ -220,7 +221,7 @@ router.delete('/:id', (req, res) => {
 router.get("/:id", (req, res) => {
     const id = req.params.id
     TikiDrink.findById(id)
-
+        
         // populate will provide more data about the document that is in the specified collection
         // the first arg is the field to populate
         // the second can specify which parts to keep or which to remove

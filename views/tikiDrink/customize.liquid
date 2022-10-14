@@ -28,7 +28,7 @@
                     name="lastUpdated"
                     value={{ "now" | date: "%m-%d-%Y" }}
                 > 
-            {% for ingredients in tikiDrink.ingredients %}
+            {%- comment -%} {% for ingredients in tikiDrink.ingredients %}
  
                 <div class="inputLine">
                      <label class="form-label">Ingredient: </label>
@@ -40,18 +40,29 @@
                            value="{{ingredients}}"
                     >
                 </div>
-            {% endfor %}
-            {% for garnishes in tikiDrink.garnishes %}
+            {% endfor %} {%- endcomment -%}
+
+             
+                <div class="inputLine">
+                     <label class="form-label">Ingredient: </label>
+                     <input
+                            class="form-control"
+                            type="text"
+                           name="ingredient"
+                           placeholder="ingredient"
+                           value="{{tikiDrink.ingredient}}"
+                    >
+
                 <div class="inputLine">
                       <label class="form-label">Garnish: </label>
                       <input
                         class="form-control"
                         type="text"
                         name="garnish"
-                        value="{{ garnishes}}"
+                        value="{{ tikiDrink.garnish}}"
                       >
                 </div>
-            {%endfor%}
+
                 <div class="inputLine">
                       <label class="form-label">Glassware: </label>
                       <input
@@ -61,17 +72,17 @@
                           value="{{ tikiDrink.glassware }}"
                       >
                 </div>
-            {% for prepInstructs in tikiDrink.prepInstructs %}
+
                 <div class="inputLine">
                       <label class="form-label">Prep Instructions: </label>
                       <input
                           class="form-control"
                           type="text"
                           name="prepInstruct"
-                          value="{{ prepInstructs }}"
+                          value="{{ tikiDrink.prepInstruct }}"
                       >
                 </div>
-            {%endfor%}
+
 
             </div>
             </fieldset>

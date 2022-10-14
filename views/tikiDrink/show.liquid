@@ -5,7 +5,7 @@
             <h2>{{tikiDrink.name}}</h2>
             {%- comment -%} {%if tikiDrink.owner%}
             {%else%} {%- endcomment -%}
-                <form action="/tikiDrink/{{tikiDrink.id}}?_method=PUT" method="POST">
+                <form action="/tikiDrink/fav/{{tikiDrink.id}}?_method=PUT" method="POST">
                 <fieldset>
                     {%if tikiDrink.fav%}
                     <input
@@ -22,7 +22,7 @@
                     >                
                 </form>
                     {%else%}                 
-                <form action="/tikiDrink/{{tikiDrink.id}}_method=PUT" method="POST">
+                <form action="/tikiDrink/fav/{{tikiDrink.id}}_method=PUT" method="POST">
                  <fieldset>
                     <input
                     style="display: none;"
@@ -63,7 +63,6 @@
             {% for prepInstruct in tikiDrink.prepInstructs %}
                 <h4>{{prepInstruct}}</h4>
             {% endfor %} 
-            <h4>{{tikiDrink.ingredient}}</h4>
             {% if tikiDrink.owner == userId %}
                 <div class="btn-group">
                     <a class="btn btn-primary" href="/tikiDrink/edit/{{tikiDrink.id}}">Update</a>
