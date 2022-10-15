@@ -15,21 +15,17 @@ const router = express.Router()
 // GET request
 ///index route
 router.get("/", (req, res) => {
-    const tikiDrink = TikiDrink.find()
-
+    const username = req.session.username
+    const loggedIn = req.session.loggedIn
+    const userId = req.session.userId
     const searchItem = req.body
-       //req.query
-
-        console.log("this is the search data ---->", searchItem)
-        res.render('search', {tikiDrink})
-        // .then(tikiDrink => {
-        //     const username = req.session.username
-        //     const loggedIn = req.session.loggedIn
-        //     const userId = req.session.userId
-            
-        //     res.render('search', { tikiDrink})
-        // })
-        // .catch(err => res.redirect(`/error?error=${err}`))
+    TikiDrink.find({contains: searchItem})
+       // console.log("this is the search data ---->", searchItem)
+        .populate("comments.author", "username")
+        .then(tikiDrink => {
+        res.render('search', { tikiDrink, username, loggedIn, userId})
+        })
+        .catch(err => res.redirect(`/error?error=${err}`))
 })
 
 

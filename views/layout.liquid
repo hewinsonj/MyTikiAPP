@@ -14,49 +14,33 @@
         <link rel="stylesheet" href="/styles.css" />
     </head>
     <body>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="position:fixed; width: 100%; z-index: 1;" >
             <div class="container-fluid">
                 <a class="navbar-brand">MyTiki</a>
-                 <a class="nav-link text-light" href="/tikiDrink">Classic Tiki</a>
-                <a class="nav-link text-light" href="/tikiDrink/mine">MyCollection</a>
-                <a class="nav-link text-light" href="/tikiDrink/favs">Personal Favs</a>
+                {%if loggedIn%}                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                   
+                <div class="collapse navbar-collapse nav nav-fill" id="navbarNav">
+                    <a class="nav-link text-light" href="/tikiDrink">Classic Tiki</a>
+                    <a class="nav-link text-light" href="/tikiDrink/favs">Personal Favs</a>
+                    <a class="nav-link text-light" href="/tikiDrink/mine">MyCollection</a>
+                    <a class="nav-link text-light" href="/tikiDrink/new">Create New</a>
+                    <a class="nav-link text-light" href="/search">Search</a>
+                     
+                {%endif%}       
                     {% if loggedIn %}
-                        <a class="nav-link text-light" href="/tikiDrink/new">Create New</a>
-                        <a class="nav-link text-light" href="/users/logout">Log Out</a>
-
+                        <a class="btn btn-success" href="/users/logout">Log Out</a>
                     {% else %}
-                        <a class="nav-link text-light" href="/users/signup">Sign Up</a>
-                        <a class="nav-link text-light" href="/users/login">Log In</a>
+                    <div>
+                        <a class="btn btn-success" href="/users/signup">Sign Up</a>
+                        <a class="btn btn-success" href="/users/login">Log In</a>
+                    </div>
                     {% endif%}
-                    <form action="/search?_method=GET" method="POST">
-                    <div style="display: inline;">
-                        <fieldset id="searchField">
-                            
-                            <input
-                             class="form"
-                             type="text"
-                             name="note"
-                             placeholder="search by keyword"
-                            >
-                        </fieldset>
-                        
-                         <input
-                             class="btn btn-success"
-                             type="submit"
-                             value="Find Paradise"
-                         >
-                         </div>
-                    </form> 
-                    {%- comment -%} <a class="nav-link text-light" href="/search">Search Page</a> {%- endcomment -%}
                 </div>
             </div>
         </nav>
-    <main class="container-md">
+    <main class="container-md">            
             {% block content %}
                 default content
             {% endblock %}

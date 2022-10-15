@@ -1,6 +1,30 @@
 {% layout 'layout.liquid' %}
 {% block content %}
     {% if tikiDrink.length > 0%}
+            <div class="nav-link" style="padding-top: 4rem">
+                        <form  action="/search?_method=GET" method="POST" >
+                            <div  class="form-row">
+                            <div class="form-group mx-sm-3 mb-2 col">
+                                <fieldset id="searchField">
+                                    
+                                    <input
+                                        class="form"
+                                        type="text"
+                                        name="note"
+                                        placeholder="search by keyword"
+                                    >
+                                </fieldset>
+                            </div>
+                            <div class="form-group mx-sm-3 mb-2 col">
+                                <input
+                                    class="btn btn-success"
+                                    type="submit"
+                                    value="Find Paradise"
+                                >                             
+                            </div>  
+                            </div>                      
+                        </form>  
+                    </div>  
         <div>
             <div class="row">
                 

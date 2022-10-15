@@ -2,45 +2,56 @@
 {% block content %}
     <div class="container-md">
         <article>
-            <h2>{{tikiDrink.name}}</h2>
+            <h2 class="names" >{{tikiDrink.name}}</h2>
             {%- comment -%} {%if tikiDrink.owner%}
             {%else%} {%- endcomment -%}
-                <form action="/tikiDrink/fav/{{tikiDrink.id}}?_method=PUT" method="POST">
-                <fieldset>
-                {%if tikiDrink.owner %}    
-                    {%if tikiDrink.fav%}
-                    <input
-                    style="display: none;"
-                    class="form-check-input"
-                    type="checkbox"
-                    name="fav"
-                    >
-                </fieldset>
-                    <input
-                        class="btn btn-success"
-                        type="submit"
-                        value="Unfavorite"
-                    >                
-                </form>
-                    {%else%}                 
-                <form action="/tikiDrink/fav/{{tikiDrink.id}}_method=PUT" method="POST">
-                 <fieldset>
-                    <input
-                    style="display: none;"
-                    class="form-check-input"
-                    type="checkbox"
-                    name="fav"
-                    checked
-                    >
-                </fieldset>
-                <input
-                        class="btn btn-success"
-                        type="submit"
-                        value="Favorite"
-                    > 
-                    {%endif%}
-                {%endif%}    
-                </form>
+            <div id="bttnGroup">
+            <div class="btn-group">
+                {% if tikiDrink.owner == userId %}
+
+                        <a class="btn btn-primary" style="margin-right: 1rem;" href="/tikiDrink/edit/{{tikiDrink.id}}">Update</a>
+
+                {%else%}
+                        <a class="btn btn-primary" href="/tikiDrink/customize/{{tikiDrink.id}}">Customize</a>
+                {% endif %}
+            </div>
+                {%if tikiDrink.owner %} 
+                        <form action="/tikiDrink/fav/{{tikiDrink.id}}?_method=PUT" method="POST">
+                        {%if tikiDrink.fav%}                    
+                            <fieldset>
+                                <input
+                                    style="display: none;"
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    name="fav"
+                                >
+                            </fieldset>
+                            <input
+                                class="btn btn-success"
+                                type="submit"
+                                value="Unfavorite"
+                            >                
+                        </form>
+                        {%else%}                 
+                            <form action="/tikiDrink/fav/{{tikiDrink.id}}_method=PUT" method="POST">
+                                <fieldset>
+                                    <input
+                                        style="display: none;"
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        name="fav"
+                                        checked
+                                    >
+                                </fieldset>
+                                <input
+                                    class="btn btn-success"
+                                    type="submit"
+                                    value="Favorite"
+                                > 
+                            </form>
+                    {%endif%}   
+                {%endif%}
+                </div>
             {%- comment -%} {%endif%} {%- endcomment -%}
 
 {%- comment -%} {% if tikiDrink.fav = true %} {% assign tikiDrink.fav = false %} {% endif %}
@@ -51,32 +62,34 @@
             {%else%}
             <h4>Original creator: {{tikiDrink.ogCreator}}</h4>
             {%endif%}
-
-            {% for ingredient in tikiDrink.ingredients %}
-                <h4>{{ingredient}}</h4>
-            {% endfor %}  
-
-            {% for garnish in tikiDrink.garnishes %}
-                <h4>{{garnish}}</h4>
-            {% endfor %}
-
-            <h4>{{tikiDrink.glassware}}</h4>
-
-            {% for prepInstruct in tikiDrink.prepInstructs %}
-                <h4>{{prepInstruct}}</h4>
-            {% endfor %} 
-            {% if tikiDrink.owner == userId %}
-                <div class="btn-group">
-                    <a class="btn btn-primary" href="/tikiDrink/edit/{{tikiDrink.id}}">Update</a>
-                    <form action="/tikiDrink/{{tikiDrink.id}}?_method=DELETE" method="POST" id="favBut">
-                        <input class="btn btn-danger" type="submit" value="Remove">
-                    </form>
+            <h1 class="titles">Ingredients</h1>
+            <div id="fieldBox">
+                {% for ingredient in tikiDrink.ingredients %}
+                  <h4 id="line">{{ingredient}}</h4>
+                {% endfor %}  
+            </div>
+            <h1 class="titles">Garnishes</h1>
+                <div id="fieldBox">
+                    {% for garnish in tikiDrink.garnishes %}
+                          <h4 id="line">{{garnish}}</h4>
+                    {% endfor %}
                 </div>
-            {%else%}
-                <a class="btn btn-primary" href="/tikiDrink/customize/{{tikiDrink.id}}">Customize</a>
-            {% endif %}
+            <h1 class="titles">Glassware</h1>
+            <div id="fieldBox">
+                <h4 id="line">{{tikiDrink.glassware}}</h4>
+            </div>
+            <h1 class="titles">Prep Instructions</h1>
+            <div id="fieldBox">       
+                {% for prepInstruct in tikiDrink.prepInstructs %}
+                    <h4 id="line">{{prepInstruct}}</h4>
+                {% endfor %} 
+            </div>
+
         </article>
         {% if tikiDrink.owner%}
+            <form action="/tikiDrink/{{tikiDrink.id}}?_method=DELETE" method="POST" id="favBut">
+                <input class="btn btn-danger" style="margin:2rem;" type="submit" value="Delete Drink">
+            </form>
         <hr>
         <h4>Comments</h4>
         <hr>
