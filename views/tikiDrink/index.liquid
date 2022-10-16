@@ -2,13 +2,13 @@
 {% block content %}
     {% if tikiDrink.length > 0%}
         <div>
-            <div style="height: 4rem">sssssss</div>
+            <div style="height: 5rem">sssssss</div>
             <div class="row">
                 
                 {% for tikiDrink in tikiDrink %}
                     <div class="card" style="width: 18rem;">
                         
-                        <div class="card-header" style="text-align: center; height: 80px; overflow: auto; font-size: 2rem; min-width: 5rem" >{{tikiDrink.name}}</div>
+                        <div class="card-header" style="text-align:center; height: 4.5rem; overflow: auto; font-size: 2rem; min-width: 5rem;" >{{tikiDrink.name}}</div>
                         <div class="card-body" style="display: block; text-align: center;">
                             
                             {%- comment -%} <p>Last Updated: {{tikiDrink.lastUpdated}}</p> {%- endcomment -%}

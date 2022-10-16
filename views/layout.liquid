@@ -16,12 +16,12 @@
     <body>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="position:fixed; width: 100%; z-index: 1;" >
             <div class="container-fluid">
-                <a class="navbar-brand">MyTiki</a>
+                <a class="navbar-brand" style="font-size: 2rem; margin-left: .5rem;">MyTiki</a>
                 {%if loggedIn%}                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse nav nav-fill" id="navbarNav">
+                <div class="collapse navbar-collapse nav nav-fill" style="font-size: 1.5rem; justify-content:center" id="navbarNav">
                     <a class="nav-link text-light" href="/tikiDrink">Classic Tiki</a>
                     <a class="nav-link text-light" href="/tikiDrink/favs">Personal Favs</a>
                     <a class="nav-link text-light" href="/tikiDrink/mine">MyCollection</a>

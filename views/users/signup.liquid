@@ -1,19 +1,19 @@
 {% layout 'layout.liquid'%}
 {% block content %}
-
+<div style="height: 4rem">sssssss</div>
     <div class="container-sm">
         {%- comment -%} in a form we have an action and a method, the action is the url endpoint the endpiont method is the verd {%- endcomment -%}
         <form action="/users/signup" method="POST">
-            <fieldset>
+            <fieldset class="wellBack">
                 <legend class="form-label">Siqn Up</legend>
                 <label>Username: </label>
-                <input class="form-control" type="text" name="username" placeholder="username" required>
+                <input class="form-control" style="width: 50%;" type="text" name="username" placeholder="username" required>
                 <label class="form-label">Password: </label>
-                <input class="form-control" type="password" name="password" placeholder="enter password" required>
+                <input class="form-control" style="width: 50%;" type="password" name="password" placeholder="enter password" required>
                 <label class="form-label">Age: </label>
-                <input class="form-control" type="number" name="age" placeholder="enter age" required>
+                <input class="form-control" style="margin-bottom: 1rem; width: 50%" type="number" name="age" placeholder="enter age" required>
             </fieldset>
-            <input class="btn btn-success" type="submit" value="Create Account">
+            <input class="btn btn-success" type="submit" style="margin-top: 1rem;" value="Create Account">
         </form>
     </div>
 

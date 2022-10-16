@@ -200,6 +200,7 @@ router.get("/edit/:id", (req, res) => {
 router.put("/:id", (req, res) => {
     console.log("req.body initially", req.body)
     const id = req.params.id
+    const loggedIn = req.session.loggedIn
     req.body.fav = req.body.fav === 'on' ? true : false
     req.body.owner = req.session.userId
     const ingredArr = req.body.ingredients.split(",")

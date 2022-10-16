@@ -1,18 +1,25 @@
 {% layout 'layout.liquid' %}
 {% block content %}
     <div class="container-md">
-        <article>
+        <article class="article">
             <h2 class="names" >{{tikiDrink.name}}</h2>
             {%- comment -%} {%if tikiDrink.owner%}
             {%else%} {%- endcomment -%}
-            <div id="bttnGroup">
+            {%if tikiDrink.owner%}
+                <h4 class="ownerUpdate">Last Updated:</h4>
+                <h3 class="ownerUpdate"> {{tikiDrink.lastUpdated}}</h3>
+            {%else%}
+                <h4 class="ownerUpdate">Original creator:</h4>
+                <h3 class="ownerUpdate"> {{tikiDrink.ogCreator}}</h3>
+            {%endif%}
+            <div id="bttnGroup" style="justify-content:right">
             <div class="btn-group">
                 {% if tikiDrink.owner == userId %}
 
-                        <a class="btn btn-primary" style="margin-right: 1rem;" href="/tikiDrink/edit/{{tikiDrink.id}}">Update</a>
+                        <a class="btn btn-success" style="margin-right: 1rem;" href="/tikiDrink/edit/{{tikiDrink.id}}">Update</a>
 
                 {%else%}
-                        <a class="btn btn-primary" href="/tikiDrink/customize/{{tikiDrink.id}}">Customize</a>
+                        <a class="btn btn-success" href="/tikiDrink/customize/{{tikiDrink.id}}">Customize</a>
                 {% endif %}
             </div>
                 {%if tikiDrink.owner %} 
@@ -27,7 +34,7 @@
                                 >
                             </fieldset>
                             <input
-                                class="btn btn-success"
+                                class="btn btn-info"
                                 type="submit"
                                 value="Unfavorite"
                             >                
@@ -56,32 +63,26 @@
 
 {%- comment -%} {% if tikiDrink.fav = true %} {% assign tikiDrink.fav = false %} {% endif %}
 {% if tikiDrink.fav = false %} {% assign tikiDrink.fav = true %} {% endif %} {%- endcomment -%}
-
-            {%if tikiDrink.owner%}
-            <h4>Last Updated: {{tikiDrink.lastUpdated}}</h4>
-            {%else%}
-            <h4>Original creator: {{tikiDrink.ogCreator}}</h4>
-            {%endif%}
             <h1 class="titles">Ingredients</h1>
             <div id="fieldBox">
                 {% for ingredient in tikiDrink.ingredients %}
-                  <h4 id="line">{{ingredient}}</h4>
+                  <h4 class="line">{{ingredient}}</h4>
                 {% endfor %}  
             </div>
             <h1 class="titles">Garnishes</h1>
                 <div id="fieldBox">
                     {% for garnish in tikiDrink.garnishes %}
-                          <h4 id="line">{{garnish}}</h4>
+                          <h4 class="line">{{garnish}}</h4>
                     {% endfor %}
                 </div>
             <h1 class="titles">Glassware</h1>
             <div id="fieldBox">
-                <h4 id="line">{{tikiDrink.glassware}}</h4>
+                <h4 class="line">{{tikiDrink.glassware}}</h4>
             </div>
             <h1 class="titles">Prep Instructions</h1>
-            <div id="fieldBox">       
+            <div id="fieldBox" style="margin-bottom: 2rem;">       
                 {% for prepInstruct in tikiDrink.prepInstructs %}
-                    <h4 id="line">{{prepInstruct}}</h4>
+                    <h4 class="line">{{prepInstruct}}</h4>
                 {% endfor %} 
             </div>
 
