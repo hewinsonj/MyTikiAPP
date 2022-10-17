@@ -3,11 +3,11 @@
 
 {% layout 'layout.liquid' %}
 {% block content %}
-
-    <div class="container-sm">
+    <div style="height: 6rem;"></div>
+    <div class="container-sm" id="customize">
         <form action="/tikiDrink" method="POST">
             <fieldset>
-<label class="wellBack" style="margin-top: 4rem;">Name: </label>
+<label class="inputLine" style="margin-top: 1rem;">Name: </label>
                 <input
                     class="form-control"
                     type="text"
@@ -30,42 +30,44 @@
                     value={{ "now" | date: "%m/%d/%Y" }}
                 > 
                 
-                <label class="wellBack">Ingredient: </label>
+                <label class="inputLine">Ingredient: </label>
                 <input
                     class="form-control"
                     type="text"
                     name="ingredients"
-                    placeholder="format input like this: (ingredient) (qty), (ingredient) (qty), (ingredient) (qty)  example: Rum 2oz, Tequila .5oz"
+                    placeholder="(ingredient) (qty), (ingredient) (qty), (ingredient) (qty)  example: Rum 2oz, Tequila .5oz"
                 >
-                <label class="wellBack">Garnish: </label>
+                <label class="inputLine">Garnish: </label>
                 <input
                     class="form-control"
                     type="text"
                     name="garnishes"
-                    placeholder="format input like this: (garnish name) (qty), (garnish name) (qty), (garnish name) (qty)  example: Lime Wheel 1 piece, Lemon Wheel 1 piece"
+                    placeholder="(garnish name) (qty), (garnish name) (qty), (garnish name) (qty)  example: Lime Wheel 1 piece, Lemon Wheel 1 piece"
                 >
-                <label class="wellBack">Glassware: </label>
+                <label class="inputLine">Glassware: </label>
                 <input
                     class="form-control"
                     type="text"
                     name="glassware"
                     placeholder="enter glassware"
                 >
-                <label class="wellBack">Prep Instructions: </label>
+                <label class="inputLine">Prep Instructions: </label>
                 <input
                     class="form-control"
                     type="text"
                     name="prepInstructs"
-                    placeholder="enter prep instructions like this: (prep instruction), (prep instuction), (prep instruction) example: Do the thing, Do the other thing, Do the other other thing"
+                    placeholder="(prep instruction), (prep instuction), (prep instruction) example: Do the thing, Do the other thing, Do the other other thing"
+                    style="margin-bottom: 1rem;"
                 >
             </fieldset>
-            
+         </div>
             <input
                 class="btn btn-success"
                 type="submit"
+                style="margin: 1rem;"
                 value="Create New tiki drink"
             >
         </form>
-    </div>
+
 
 {% endblock %}

@@ -2,16 +2,18 @@
 {% block content %}
     <div class="container-md">
         <article class="article">
+            <div class="ownerUpdate">
             <h2 class="names" >{{tikiDrink.name}}</h2>
             {%- comment -%} {%if tikiDrink.owner%}
             {%else%} {%- endcomment -%}
             {%if tikiDrink.owner%}
-                <h4 class="ownerUpdate">Last Updated:</h4>
-                <h3 class="ownerUpdate"> {{tikiDrink.lastUpdated}}</h3>
+                <h4>Last Updated:</h4>
+                <h3> {{tikiDrink.lastUpdated}}</h3>
             {%else%}
-                <h4 class="ownerUpdate">Original creator:</h4>
-                <h3 class="ownerUpdate"> {{tikiDrink.ogCreator}}</h3>
+                <h4>Original creator:</h4>
+                <h3> {{tikiDrink.ogCreator}}</h3>
             {%endif%}
+            </div>
             <div id="bttnGroup" style="justify-content:right">
             <div class="btn-group">
                 {% if tikiDrink.owner == userId %}
@@ -63,24 +65,24 @@
 
 {%- comment -%} {% if tikiDrink.fav = true %} {% assign tikiDrink.fav = false %} {% endif %}
 {% if tikiDrink.fav = false %} {% assign tikiDrink.fav = true %} {% endif %} {%- endcomment -%}
-            <h1 class="titles">Ingredients</h1>
             <div id="fieldBox">
+                <h1 class="titles">Ingredients</h1>
                 {% for ingredient in tikiDrink.ingredients %}
                   <h4 class="line">{{ingredient}}</h4>
                 {% endfor %}  
             </div>
-            <h1 class="titles">Garnishes</h1>
                 <div id="fieldBox">
+                <h1 class="titles">Garnishes</h1>
                     {% for garnish in tikiDrink.garnishes %}
                           <h4 class="line">{{garnish}}</h4>
                     {% endfor %}
                 </div>
-            <h1 class="titles">Glassware</h1>
             <div id="fieldBox">
+                <h1 class="titles">Glassware</h1>
                 <h4 class="line">{{tikiDrink.glassware}}</h4>
             </div>
-            <h1 class="titles">Prep Instructions</h1>
-            <div id="fieldBox" style="margin-bottom: 2rem;">       
+            <div id="fieldBox" style="margin-bottom: 2rem;"> 
+            <h1 class="titles">Prep Instructions</h1>                      
                 {% for prepInstruct in tikiDrink.prepInstructs %}
                     <h4 class="line">{{prepInstruct}}</h4>
                 {% endfor %} 
@@ -88,23 +90,19 @@
 
         </article>
         {% if tikiDrink.owner%}
-            <form action="/tikiDrink/{{tikiDrink.id}}?_method=DELETE" method="POST" id="favBut">
-                <input class="btn btn-danger" style="margin:2rem;" type="submit" value="Delete Drink">
-            </form>
+            
+                <a  class="btn btn-danger" href="/tikiDrink/deleteConf/{{tikiDrink.id}}" style="margin:1rem 0 1rem 0;">Delete Drink</a>
         <hr>
-        <h4>Comments</h4>
-        <hr>
-        
-            <div class="col-md-6">
-                <form action="/comments/{{tikiDrink.id}}" method="POST">
-                    <fieldset>
-                        <legend>Add Comment</legend>
-                        <label class="form-label">comment:</label>
+        <h1 class="titles">Comments</h1>
+        <hr>              
+                <form action="/comments/{{tikiDrink.id}}" style="justify-content: center; align-content:center;" method="POST">
+                    <fieldset   id="fieldBoxCom" >
+                        <div class="titles2">Add Comment 
                         <input class="form-control mb-2" type="text" placeholder="enter your comment..." name="note" required>
+                        </div> 
                     </fieldset>
-                    <input class="btn btn-success" type="submit" value="add comment">
+                    <input class="btn btn-success" style="margin: .5rem;" type="submit" value="add comment">
                 </form>
-            </div>
 
             {%- comment -%} <div class="col-md-6">
                 <small>If you'd like to leave a comment, please log in...</small>
@@ -112,17 +110,14 @@
         
         <hr>
         {% if tikiDrink.comments.length > 0%}
-            <div class="container-sm justify-content-center">
-                <div class="col-md-8 col-lg-6">
+                <div class="col-md-8 col-lg-6" style="justify-content: center; align-content:center">
                     {% for comment in tikiDrink.comments %}
                         {% render '../comment.liquid', comment: comment, userId: userId, tikiDrink: tikiDrink %}
                     {% endfor %}
                 </div>
-            </div>
         {% else %}
-            <small>no comments as of yet...</small>
+            <small class="titles3" style="padding: 1rem; margin-top: 1rem;">no comments as of yet...</small>
         {% endif %}
-        <hr>
     {% endif %}
     </div>
 {% endblock %}

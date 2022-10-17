@@ -317,6 +317,29 @@ router.get("/:id", (req, res) => {
         .catch(err => res.redirect(`/error?error=${err}`))
 })
 
+/////GET ROUTE for DRINK DELETE CONFIRMATION
+router.get("/deleteConf/:id", (req, res) => {
+    const id = req.params.id
+    TikiDrink.findById(id)
+        
+        // populate will provide more data about the document that is in the specified collection
+        // the first arg is the field to populate
+        // the second can specify which parts to keep or which to remove
+        //.populate("owner", "username")
+        // we can also populate fields of our subdocuments
+        .populate("comments.author", "username")
+        
+        .then(tikiDrink => {
+            const username = req.session.username
+            const loggedIn = req.session.loggedIn
+            const userId = req.session.userId
+
+            res.render('tikiDrink/deleteConf', { tikiDrink, username, loggedIn, userId })
+        })
+        .catch(err => res.redirect(`/error?error=${err}`))
+})
+
+
 
 //////////////////////////////////////////
 // Export the Router

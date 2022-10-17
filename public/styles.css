@@ -17,21 +17,34 @@ body {
     margin: 5px;
     background-color: lightseagreen;
     border-radius: 2%;
+    border: solid .3rem darkcyan;
     height: 17rem;
+}
+
+.commCard {
+    margin: 5px;
+    background-color:  rgb(40, 40, 40);
+    opacity: .9;
+    color: seashell;
+    border-radius: 2%;
+    height: 9rem;
+    overflow:auto;
 }
 
 .inputLine {
     display: inline;
+    font-size: 1.5rem;
 }
 
 #fieldBox {
     border: solid tan 8px;
-    border-radius: 20px;
+    border-radius: 1rem;
     color: black;
     background-image: url(https://i.imgur.com/HdavFgH.jpg);
     align-content: center;
     justify-content: center;
-    padding: 4px;
+    padding: 1rem;
+    margin: 1rem 0 1rem 0;
     
 
 }
@@ -46,7 +59,7 @@ body {
     /* background-image: url(https://i.imgur.com/HdavFgH.jpg); */
     background-size: contain;
     /* background-size: 10rem; */
-    background-color: rgb(30, 30, 30);
+    background-color: rgb(40, 40, 40);
     color: seashell;
     opacity: .95;
     background-position: center;
@@ -56,16 +69,18 @@ body {
     justify-content: center;
     margin: auto;
     border-radius: .5rem;
+    padding: 0 1rem 0 1rem;
 }
 
 .titles {
-    background-image: url(https://i.imgur.com/HdavFgH.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), 
+    rgba(0, 0, 0, 0.3)), url(https://i.imgur.com/HdavFgH.jpg);
     background-size: contain;
     background-position: center;
-    border-radius: 20px;
-    color: black;
-    margin: 1rem;
-    border: solid tan 8px;
+    border-radius: 1rem;
+    color: seashell;
+    margin-bottom: 1rem;
+    border: solid tan 4px;
     /* border-image: url(https://i.imgur.com/OiOp4HZ.jpg); */
     border-image-width: 100%;
     padding-left: 1rem;
@@ -80,7 +95,6 @@ body {
     /* margin: 2rem; */
     border-radius: .25rem;
     padding-top: 5rem;
-    padding-left: 1rem;
     z-index: -2;
     overflow: auto;
 }
@@ -97,7 +111,7 @@ body {
     /* margin: 2rem; */
     border-radius: .25rem;
     z-index: -2;
-    padding-left: 1rem;
+    padding: 0 0 1rem 1rem;
 }
 
 .article {
@@ -118,7 +132,18 @@ body {
 .wellBack {
     font-size: 2rem;
     color: white;
-    background-color: black;
+    background-color: rgb(20, 20, 20);
+    opacity: .95;
+    /* margin: 2rem; */
+    border-radius: .5rem;
+    z-index: -2;
+    padding-left: 1rem;
+}
+
+.wellcome {
+    font-size: 2rem;
+    color: white;
+    background-color: rgb(20, 20, 20);
     opacity: .95;
     /* margin: 2rem; */
     border-radius: .5rem;
@@ -128,3 +153,90 @@ body {
 /* 
 .unfCust {
     /* float: right; */
+
+#edit {
+    font-size: 2rem;
+    color: white;
+    background-color: rgb(20, 20, 20);
+    opacity: .95;
+    /* margin: 2rem; */
+    border-radius: .5rem;
+    z-index: -2;
+    padding-left: 1rem;
+}
+
+#customize {
+    font-size: 1rem;
+    color: white;
+    background-color: rgb(20, 20, 20);
+    opacity: .95;
+    /* margin: 2rem; */
+    border-radius: .5rem;
+    z-index: -2;
+    padding-left: 1rem;
+}
+
+#fieldBoxCom {
+    border: solid tan 8px;
+    border-radius: 20px;
+    color: black;
+    background-image: url(https://i.imgur.com/CYV9pir.jpg);
+    background-position: center;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 4px;
+    
+
+}
+
+.titlesCom {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), 
+    rgba(0, 0, 0, 0.3)), url(https://i.imgur.com/HdavFgH.jpg);
+    background-size: contain;
+    background-position: center;
+    border-radius: 20px;
+    color: seashell;
+    margin: 1rem;
+    margin-left: 0rem;
+    border: solid tan 4px;
+    /* border-image: url(https://i.imgur.com/OiOp4HZ.jpg); */
+    border-image-width: 100%;
+    padding: .5rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.titles2 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), 
+    rgba(0, 0, 0, 0.3)), url(https://i.imgur.com/HdavFgH.jpg);
+    background-size: contain;
+    background-position: center;
+    border-radius: 20px;
+    color: seashell;
+    margin: 1rem;
+    border: solid tan .25rem;
+    /* border-image: url(https://i.imgur.com/OiOp4HZ.jpg); */
+    border-image-width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+.titles3 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), 
+    rgba(0, 0, 0, 0.3)), url(https://i.imgur.com/HdavFgH.jpg);
+    background-size: contain;
+    background-position: center;
+    border-radius: 20px;
+    color: seashell;
+    margin: 1rem;
+    border: solid tan 8px;
+    /* border-image: url(https://i.imgur.com/OiOp4HZ.jpg); */
+    border-image-width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+

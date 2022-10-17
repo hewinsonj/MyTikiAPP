@@ -1,7 +1,7 @@
 {% layout 'layout.liquid' %}
 {% block content %}
-
-    <div class="container-sm">
+    <div style="height: 6rem;"></div>
+    <div class="container-sm" id="edit">
         {%- comment -%} change the action {%- endcomment -%}
         {%- comment -%} add values to input fields {%- endcomment -%}
         {%- comment -%} add a back button {%- endcomment -%}
@@ -9,8 +9,8 @@
 
         
 
-            <fieldset id="field">
-                <legend>Edit {{tikiDrink.name}}</legend>
+            <fieldset>
+                <legend style="font-size: 2rem;">Edit {{tikiDrink.name}}</legend>
             <div>
                 <div class="inputLine">
                     <label class="form-label">Name:</label>
@@ -75,19 +75,22 @@
                           class="form-control"
                           type="text"
                           name="prepInstructs"
+                          style="margin-bottom: 1rem;"
                           value="{{ prepInstructString }}"
                       >
                 </div>
  
             </div>
             </fieldset>
+        </div>
             <input
                 class="btn btn-success"
                 type="submit"
+                style="margin: 1rem;"
                 value="Update {{tikiDrink.name}}"
             >
         </form>
-    </div>
+
 
 <script>
 

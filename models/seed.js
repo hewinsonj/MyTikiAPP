@@ -20,8 +20,8 @@ db.on('open', (req, res) => {
         garnishes: "Pineapple wedge 1 piece",
         garnish: "Pineapple wedge 1 piece",
         glassware: "Pearl Diver",
-        prepInstructs: "Add ingredients and ice to shaker tin, shake until dilluted, dirty dump, top with fresh pebble ice, place pineapple wedge on side of glass, add straw and serve!",
-        prepInstruct: "Add ingredients and ice to shaker tin, shake until dilluted, dirty dump, top with fresh pebble ice, place pineapple wedge on side of glass, add straw and serve!"
+        prepInstructs: "Add ingredients and ice to shaker tin, shake until diluted, dirty dump, top with fresh pebble ice, place pineapple wedge on side of glass, add straw and serve!",
+        prepInstruct: "Add ingredients and ice to shaker tin, shake until diluted, dirty dump, top with fresh pebble ice, place pineapple wedge on side of glass, add straw and serve!"
         },
         { name: "Grog",
         ogCreator: "Don the Beachcomber",
@@ -50,8 +50,8 @@ db.on('open', (req, res) => {
         garnishes: "Pineapple wedge 1 piece, Mint Sprig",
         garnish: "Pineapple wedge 1 piece, Mint Sprig",
         glassware: "Tall Collins",
-        prepInstructs: "Add ingredients and ice to shaker tin, shake until dilluted, dirty dump, top with fresh pebble ice, place pineapple wedge on side of glass, nestle mint sprig next to pineapple wedge, add straw and serve!",
-        prepInstruct: "Add ingredients and ice to shaker tin, shake until dilluted, dirty dump, top with fresh pebble ice, place pineapple wedge on side of glass, nestle mint sprig next to pineapple wedge, add straw and serve!",
+        prepInstructs: "Add ingredients and ice to shaker tin, shake until diluted, dirty dump, top with fresh pebble ice, place pineapple wedge on side of glass, nestle mint sprig next to pineapple wedge, add straw and serve!",
+        prepInstruct: "Add ingredients and ice to shaker tin, shake until diluted, dirty dump, top with fresh pebble ice, place pineapple wedge on side of glass, nestle mint sprig next to pineapple wedge, add straw and serve!",
         },
         { name: "Yellow Submarine",
         ogCreator: "Beachbum Berry",
@@ -60,8 +60,8 @@ db.on('open', (req, res) => {
         garnishes: "Pineapple wedge 1 piece, Banana Leaf 1",
         garnish: "Pineapple wedge 1 piece, Banana Leaf 1",
         glassware: "Tall Collins",
-        prepInstructs: "Add ingredients and ice to shaker tin, shake until dilluted, dirty dump, top with fresh pebble ice, nestle pineapple wedge cut side down in the middle of the ice, place banana leaf behind pineapple wedge to one side, add straw and serve!",
-        prepInstruct: "Add ingredients and ice to shaker tin, shake until dilluted, dirty dump, top with fresh pebble ice, nestle pineapple wedge cut side down in the middle of the ice, place banana leaf behind pineapple wedge to one side, add straw and serve!",
+        prepInstructs: "Add ingredients and ice to shaker tin, shake until diluted, dirty dump, top with fresh pebble ice, nestle pineapple wedge cut side down in the middle of the ice, place banana leaf behind pineapple wedge to one side, add straw and serve!",
+        prepInstruct: "Add ingredients and ice to shaker tin, shake until diluted, dirty dump, top with fresh pebble ice, nestle pineapple wedge cut side down in the middle of the ice, place banana leaf behind pineapple wedge to one side, add straw and serve!",
         },
         { name: "Port Au Prince",
         ogCreator: "Don the Beachcomber",
@@ -70,8 +70,8 @@ db.on('open', (req, res) => {
         garnishes: "Lime Wedge 1 piece, Umbrella 1 ",
         garnish: "Lime Wedge 1 piece, Umbrella 1 ",
         glassware: "Large Snifter",
-        prepInstructs: "Add ingredients and ice to shaker tin, shake until dilluted, dirty dump, top with fresh pebble ice, spear umbrella through the peal side of the lime wedge and place on side of glass, add straw and serve!",
-        prepInstruct: "Add ingredients and ice to shaker tin, shake until dilluted, dirty dump, top with fresh pebble ice, spear umbrella through the peal side of the lime wedge and place on side of glass, add straw and serve!"
+        prepInstructs: "Add ingredients and ice to shaker tin, shake until diluted, dirty dump, top with fresh pebble ice, spear umbrella through the peal side of the lime wedge and place on side of glass, add straw and serve!",
+        prepInstruct: "Add ingredients and ice to shaker tin, shake until diluted, dirty dump, top with fresh pebble ice, spear umbrella through the peal side of the lime wedge and place on side of glass, add straw and serve!"
         },
         { name: "The Undead Gentleman",
         ogCreator: "Martin Cate",
@@ -80,8 +80,8 @@ db.on('open', (req, res) => {
         garnishes: "Lime twist 1, Grapefruit twist 1",
         garnish: "Lime twist 1, Grapefruit twist 1",
         glassware: "Chilled Coupe",
-        prepInstructs: "Rinse coupe with absinthe, add remaining ingredients and ice to shaker tin, shake until dilluted, double strain, drape intertwined twists on side of glass and serve!",
-        prepInstruct: "Rinse coupe with absinthe, add remaining ingredients and ice to shaker tin, shake until dilluted, double strain, drape intertwined twists on side of glass and serve!"
+        prepInstructs: "Rinse coupe with absinthe, add remaining ingredients and ice to shaker tin, shake until diluted, double strain, drape intertwined twists on side of glass and serve!",
+        prepInstruct: "Rinse coupe with absinthe, add remaining ingredients and ice to shaker tin, shake until diluted, double strain, drape intertwined twists on side of glass and serve!"
         },
         { name: "The Mastodon",
         ogCreator: "Alex Smith",
@@ -90,8 +90,8 @@ db.on('open', (req, res) => {
         garnishes: "Whole Pineapple (hollowed-out) 1",
         garnish: "Whole Pineapple (hollowed-out) 1",
         glassware: "Whole Pineapple (hollowed-out)",
-        prepInstructs: "Add ingredients and ice to shaker tin, shake until dilluted, dirty dump, top with fresh ice, add a straw and serve!",
-        prepInstruct: "Add ingredients and ice to shaker tin, shake until dilluted, dirty dump, top with fresh ice, add a straw and serve!",
+        prepInstructs: "Add ingredients and ice to shaker tin, shake until diluted, dirty dump, top with fresh ice, add a straw and serve!",
+        prepInstruct: "Add ingredients and ice to shaker tin, shake until diluted, dirty dump, top with fresh ice, add a straw and serve!",
         },
         { name: "Monk's Respite",
         ogCreator: "Steven Liles",
@@ -125,13 +125,13 @@ db.on('open', (req, res) => {
         },
         { name: "Three Dots and a Dash",
         ogCreator: "Don the Beachcomber",
-        ingredients: "Rhum J.M E.S.B. Gold 1.5oz, Chairman's Reserve Forgotten Cask .5oz, St. Elizabeth Allspice Dram .25oz, Velvet Falernum .25oz, Orange Juice .5oz, Lime Juice .5oz, Honey Syrup .5oz, Angostura Bitters 1 dash",
-        ingredient: "Rhum J.M E.S.B. Gold 1.5oz, Chairman's Reserve Forgotten Cask .5oz, St. Elizabeth Allspice Dram .25oz, Velvet Falernum .25oz, Orange Juice .5oz, Lime Juice .5oz, Honey Syrup .5oz, Angostura Bitters 1 dash",
+        ingredients: "Rhum J.M. E.S.B. Gold 1.5oz, Chairman's Reserve Forgotten Cask .5oz, St. Elizabeth Allspice Dram .25oz, Velvet Falernum .25oz, Orange Juice .5oz, Lime Juice .5oz, Honey Syrup .5oz, Angostura Bitters 1 dash",
+        ingredient: "Rhum J.M. E.S.B. Gold 1.5oz, Chairman's Reserve Forgotten Cask .5oz, St. Elizabeth Allspice Dram .25oz, Velvet Falernum .25oz, Orange Juice .5oz, Lime Juice .5oz, Honey Syrup .5oz, Angostura Bitters 1 dash",
         garnishes: "Maraschino Cherries 3, Pineapple Frond 1",
         garnish: "Maraschino Cherries 3, Pineapple Frond 1",
         glassware: "Tall Collins",
-        prepInstructs: "Add ingredients and ice to shaker tin, shake until dilluted, dirty dump, top with extra pebble until glass is full, skewer cherries and lay across glass with the pineapple fond behind them, add a straw and serve!",
-        prepInstruct: "Add ingredients and ice to shaker tin, shake until dilluted, dirty dump, top with extra pebble until glass is full, skewer cherries and lay across glass with the pineapple fond behind them, add a straw and serve!"
+        prepInstructs: "Add ingredients and ice to shaker tin, shake until diluted, dirty dump, top with extra pebble until glass is full, skewer cherries and lay across glass with the pineapple fond behind them, add a straw and serve!",
+        prepInstruct: "Add ingredients and ice to shaker tin, shake until diluted, dirty dump, top with extra pebble until glass is full, skewer cherries and lay across glass with the pineapple fond behind them, add a straw and serve!"
         }
       ]
 

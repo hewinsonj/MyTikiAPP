@@ -1,13 +1,13 @@
 {% layout 'layout.liquid' %}
 {% block content %}
-<div style="height: 4rem">sssssss</div>
-    <div class="ownerUpdate">
-        <h2>Leaving so soon?</h2>
+<div style="height: 6rem">sssssss</div>
+    <div class="ownerUpdate" style="padding: 1rem;">
+        <h2>Leaving so soon {{ user.username }}?</h2>
+    </div>
         <div class="btn-group">
             <form action="/users/logout?_method=DELETE" method="POST">
-                <a style="height: 2rem " class="btn btn-warning">Take me back</a>
-                <input style="height: 2rem "  class="btn btn-danger" type="submit" value="Log out">
+                <a style="height: 2rem; margin: 1rem " class="btn btn-success" href="/tikiDrink">Take me back</a>
+                <input style="height: 2rem; margin: 1rem  "  class="btn btn-danger" type="submit" value="Log out">
             </form>
         </div>
-    </div>
 {% endblock %}

@@ -1,16 +1,16 @@
 {% layout 'layout.liquid' %}
 {% block content %}
-<div style="height: 4rem">sssssss</div>
+<div style="height: 14rem">sssssss</div>
     <div class="container-sm">
         <form action="/users/login" method="POST">
-            <fieldset class="wellBack">
-                <legend class="aloha">Welcome back!</legend>
+            <fieldset class="wellcome">
+                <legend style="font-size: 3rem;">Welcome!</legend>
                 <label class="form-label">Username: </label>
-                <input class="form-control" style="width: 50%" name="username" type="text" placeholder="username" required>
+                <input class="form-control" style="width: 95%;" name="username" type="text" placeholder="username" required>
                 <label class="form-label">Password: </label>
-                <input class="form-control" style="width: 50%; margin-bottom: 1rem;" name="password" type="password" placeholder="enter password" required>
+                <input class="form-control" style="width: 95%; margin-bottom: 1rem;" name="password" type="password" placeholder="enter password" required>
             </fieldset>
-            <input class="btn btn-success" style="margin-top: 2rem;" type="submit" value="Submit">
+            <input class="btn btn-success" style="margin: 2rem;" type="submit" value="Submit">
         </form>
     </div>
 
