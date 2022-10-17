@@ -21,11 +21,11 @@
                                                 value="Search"
                                             >                             
                                         </div>  
+                                    </div>
                                     <div id="fieldBox">
                                         <div class="titles" style="margin-bottom: 0;">
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" 
-                                                name="inlineCheckbox1">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="inlineCheckbox1">
                                                 <label class="form-check-label" for="inlineCheckbox1">Name</label>
                                                 </div>
                                             <div class="form-check form-check-inline">
@@ -55,12 +55,13 @@
                                             {%- comment -%} <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="checkbox" id="inlineCheckbox8" name="inlineCheckbox8">
                                                 <label class="form-check-label" for="inlineCheckbox8">Comments</label>
-                                            </div> {%- endcomment -%}
-                                            <h4>Selece one to filter</h4>
+                                                </div> {%- endcomment -%}
+                                             <h4>Selece one to filter</h4>
                                         </div>
                                     </div>
                                 </fieldset>
-                            </div> 
+                            </div>
+
                             </div>                      
                         </form>  
                     </div>  
@@ -70,8 +71,8 @@
                 {% for tikiDrink in tikiDrink %}
                     <div class="card" style="width: 18rem;">
                         
-                        <h1 class="card-header">{{tikiDrink.name}}</h1>
-                        <div class="card-body" style="display: block; text-align: center;">
+                        <div class="card-header" >{{tikiDrink.name}}</div>
+                        <div class="card-body" style="display: flex; flex-direction:column; text-align: center; justify-content:space-between; align-content:center "">
                             
                             {%- comment -%} <p>Last Updated: {{tikiDrink.lastUpdated}}</p> {%- endcomment -%}
                             

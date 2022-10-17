@@ -3,11 +3,11 @@
     <div style="height: 6rem;"></div>
     <div class="container-md">
         <article class="article" >
-            <div class="ownerUpdate" style="justify-content:space-between; display:flex; flex-direction:row; padding:1rem; ">
+            <div class="ownerUpdate" style="justify-content:space-between; display:flex; flex-direction:column; padding:1rem; ">
                 <h2 style="font-size: 3rem;" >{{tikiDrink.name}}</h2>
                 {%- comment -%} {%if tikiDrink.owner%}
                 {%else%} {%- endcomment -%}
-                <div style="text-align:right;">
+                {%- comment -%} <div style="text-align:right;"> {%- endcomment -%}
                     {%if tikiDrink.owner%}
                         <h4>Last Updated:</h4>
                         <h3> {{tikiDrink.lastUpdated}}</h3>
@@ -15,7 +15,7 @@
                         <h4>Original creator:</h4>
                         <h3> {{tikiDrink.ogCreator}}</h3>
                     {%endif%}
-                </div>
+                {%- comment -%} </div> {%- endcomment -%}
             </div>
             <div id="bttnGroup" style="justify-content:right">
             <div class="btn-group">
