@@ -45,7 +45,7 @@ router.get("/search", (req, res) => {
     const checkBox6 = req.body.inlineCheckbox6
     const checkBox7 = req.body.inlineCheckbox7
     const checkBox8 = req.body.inlineCheckbox8
-
+    console.log(req.body)
     if(checkBox1 == true) {
         TikiDrink.find({name: {$regex: searchItem, $options: "i"}})
             //console.log("this is the search data ---->", searchItem)
@@ -107,7 +107,7 @@ router.get("/search", (req, res) => {
             })
             .catch(err => res.redirect(`/error?error=${err}`))
     } else if(checkBox8 == true) {
-        TikiDrink.find({comments: {$regex: searchItem, $options: "i"}})
+        TikiDrink.find({comments: {note:{$regex: searchItem, $options: "i"}}})
             //console.log("this is the search data ---->", searchItem)
             .populate("comments.author", "username")
             .then(tikiDrink => {

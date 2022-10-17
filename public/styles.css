@@ -8,15 +8,16 @@ body {
     color: black;
     width: 100%;
     height: 100%;
-
+    font-family: 'Libre Baskerville', serif;
+    /* font-family: 'Roboto Slab', serif; */
 }
 
 .card-header {
     color:seashell;
     text-align:center;
-    height: 4.5rem;
+    height: 3.5rem;
     overflow: auto;
-    font-size: 2rem;
+    font-size: 1.9rem;
     min-width: 5rem;
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), 
     rgba(0, 0, 0, 0.3)), url(https://i.imgur.com/HdavFgH.jpg);
@@ -25,6 +26,7 @@ body {
     background-position: center;
     margin: .5rem;
     border-radius: .1rem;
+    padding: 0 2px 0 2px;
 }
 
 
@@ -36,6 +38,9 @@ body {
     border: solid .3rem tan;
     height: 17rem;
     background-image: url(https://i.imgur.com/HdavFgH.jpg);
+    align-content: center;
+    justify-content: space-around;
+    padding-bottom: 1rem;
 }
 
 .commCard {
@@ -68,8 +73,12 @@ body {
     border-radius: 1rem;
     color: seashell;
     background-color:  rgb(40, 40, 40);
+    opacity: .95;
     align-content: center;
     justify-content: center;
+    /* width: 90%;
+    height:90%; */
+    /* margin-bottom: 1rem; */
 }
 
 #bttnGroup {

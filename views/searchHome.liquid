@@ -5,23 +5,62 @@
                             <div  class="form-row">
                             <div class="form-group mx-sm-3 mb-2 col">
                                 <fieldset id="searchField">
-                                    
-                                    <input
-                                        class="form-control"
-                                        type="text"
-                                        name="note"
-                                        placeholder="search by keyword"
-                                        value="{{ searchItem.note }}"
-                                    >
+                                   <div class="input-group mb-3">
+                                        <input
+                                            class="form-control"
+                                            type="text"
+                                            name="note"
+                                            placeholder="search by keyword"
+                                            aria-describedby="basic-addon2"
+                                            value="{{ searchItem.note }}"
+                                        >
+                                        <div class="input-group-append">
+                                            <input
+                                                class="btn btn-success"
+                                                type="submit"
+                                                value="Search"
+                                            >                             
+                                        </div>  
+                                    <div id="fieldBox">
+                                        <div class="titles" style="margin-bottom: 0;">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" 
+                                                name="inlineCheckbox1">
+                                                <label class="form-check-label" for="inlineCheckbox1">Name</label>
+                                                </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="inlineCheckbox2" >
+                                                <label class="form-check-label" for="inlineCheckbox2">Ingredients</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" name="inlineCheckbox3" >
+                                                <label class="form-check-label" for="inlineCheckbox3">Garnishes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox4" name="inlineCheckbox4">
+                                                <label class="form-check-label" for="inlineCheckbox4">Creator</label>
+                                                </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox5" name="inlineCheckbox5">
+                                                <label class="form-check-label" for="inlineCheckbox5">Last Updated</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox6" name="inlineCheckbox6">
+                                                <label class="form-check-label" for="inlineCheckbox6">Glassware</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox7" name="inlineCheckbox7">
+                                                <label class="form-check-label" for="inlineCheckbox7">Prep Instructs</label>
+                                            </div>
+                                            {%- comment -%} <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox8" name="inlineCheckbox8">
+                                                <label class="form-check-label" for="inlineCheckbox8">Comments</label>
+                                            </div> {%- endcomment -%}
+                                            <h4>Selece one to filter</h4>
+                                        </div>
+                                    </div>
                                 </fieldset>
-                            </div>
-                            <div class="form-group mx-sm-3 mb-2 col">
-                                <input
-                                    class="btn btn-success"
-                                    type="submit"
-                                    value="Find Paradise"
-                                >                             
-                            </div>  
+                            </div> 
                             </div>                      
                         </form>  
                     </div>  
@@ -31,7 +70,7 @@
                 {% for tikiDrink in tikiDrink %}
                     <div class="card" style="width: 18rem;">
                         
-                        <h1 class="card-header"  style="text-align:center; height: 4.5rem; overflow: auto; font-size: 2rem; min-width: 5rem;" >{{tikiDrink.name}}</h1>
+                        <h1 class="card-header">{{tikiDrink.name}}</h1>
                         <div class="card-body" style="display: block; text-align: center;">
                             
                             {%- comment -%} <p>Last Updated: {{tikiDrink.lastUpdated}}</p> {%- endcomment -%}
@@ -39,14 +78,14 @@
 
                             {%if tikiDrink.owner%}
                                 <h5>Last Updated: </h5>
-                                <h3  class="card-text"> {{tikiDrink.lastUpdated}}</h3>
+                                <h4  class="card-text"> {{tikiDrink.lastUpdated}}</h4>
 
                             {%else%}
                                 <h5>Original creator: </h5>
-                                <h3 class="card-text"> {{tikiDrink.ogCreator}}</h3>
+                                <h4 class="card-text"> {{tikiDrink.ogCreator}}</h4>
                             {%endif%}
 
-                            <a class="btn btn-info" href="/tikiDrink/{{tikiDrink.id}}">
+                            <a class="btn btn-success" href="/tikiDrink/{{tikiDrink.id}}">
                                 View
                             </a>
                         </div>

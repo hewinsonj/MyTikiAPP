@@ -16,11 +16,11 @@
 
                             {%if tikiDrink.owner%}
                                 <h5>Last Updated: </h5>
-                                <h3  class="card-text"> {{tikiDrink.lastUpdated}}</h3>
+                                <h4  class="card-text"> {{tikiDrink.lastUpdated}}</h4>
 
                             {%else%}
                                 <h5>Original creator: </h5>
-                                <h3 class="card-text"> {{tikiDrink.ogCreator}}</h3>
+                                <h4 class="card-text"> {{tikiDrink.ogCreator}}</h4>
                             {%endif%}
 
                             <a class="btn btn-success" style="" href="/tikiDrink/{{tikiDrink.id}}">
