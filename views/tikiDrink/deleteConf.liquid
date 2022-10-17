@@ -5,9 +5,9 @@
         <h2>Are you sure you want to delete "{{ tikiDrink.name }}"?</h2>
     </div>
         <div style="display: flex; flex-direction:row;">
-            <a style="height: 2rem; margin: 1rem " class="btn btn-success"href="/tikiDrink/{{tikiDrink.id}}">Keep it</a>
+            <a style="margin: 1rem " class="btn btn-success"href="/tikiDrink/{{tikiDrink.id}}">Keep it</a>
             <form action="/tikiDrink/{{tikiDrink.id}}?_method=DELETE" method="POST">
-                <input style="height: 2rem; margin: 1rem  "  class="btn btn-danger" type="submit" value="DELETE">
+                <input style=" margin: 1rem;"  class="btn btn-danger" type="submit" value="Delete">
             </form>
         </div>
 {% endblock %}

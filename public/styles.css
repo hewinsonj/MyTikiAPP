@@ -11,14 +11,31 @@ body {
 
 }
 
+.card-header {
+    color:seashell;
+    text-align:center;
+    height: 4.5rem;
+    overflow: auto;
+    font-size: 2rem;
+    min-width: 5rem;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), 
+    rgba(0, 0, 0, 0.3)), url(https://i.imgur.com/HdavFgH.jpg);
+    border: solid tan .25rem;
+    background-size: contain;
+    background-position: center;
+    margin: .5rem;
+    border-radius: .1rem;
+}
+
 
 
 .card {
     margin: 5px;
     background-color: lightseagreen;
     border-radius: 2%;
-    border: solid .3rem darkcyan;
+    border: solid .3rem tan;
     height: 17rem;
+    background-image: url(https://i.imgur.com/HdavFgH.jpg);
 }
 
 .commCard {
@@ -45,8 +62,14 @@ body {
     justify-content: center;
     padding: 1rem;
     margin: 1rem 0 1rem 0;
-    
+}
 
+.card-body {
+    border-radius: 1rem;
+    color: seashell;
+    background-color:  rgb(40, 40, 40);
+    align-content: center;
+    justify-content: center;
 }
 
 #bttnGroup {

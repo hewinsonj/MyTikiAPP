@@ -3,11 +3,11 @@
     <div style="height: 6rem;"></div>
     <div class="container-md">
         <article class="article" >
-            <div class="ownerUpdate" style="display:flex; flex-direction:row ">
+            <div class="ownerUpdate" style="justify-content:space-between; display:flex; flex-direction:row; padding:1rem; ">
                 <h2 style="font-size: 3rem;" >{{tikiDrink.name}}</h2>
                 {%- comment -%} {%if tikiDrink.owner%}
                 {%else%} {%- endcomment -%}
-                <div style="float:right">
+                <div style="text-align:right;">
                     {%if tikiDrink.owner%}
                         <h4>Last Updated:</h4>
                         <h3> {{tikiDrink.lastUpdated}}</h3>
@@ -20,9 +20,7 @@
             <div id="bttnGroup" style="justify-content:right">
             <div class="btn-group">
                 {% if tikiDrink.owner == userId %}
-
                         <a class="btn btn-success" style="margin-right: 1rem;" href="/tikiDrink/edit/{{tikiDrink.id}}">Update</a>
-
                 {%else%}
                         <a class="btn btn-success" style="margin-right: 1rem;" href="/tikiDrink/customize/{{tikiDrink.id}}">Customize</a>
                 {% endif %}
@@ -84,7 +82,7 @@
                 <h1 class="titles">Glassware</h1>
                 <h4 class="line">{{tikiDrink.glassware}}</h4>
             </div>
-            <div id="fieldBox" style="margin-bottom: 2rem;"> 
+            <div id="fieldBox"> 
             <h1 class="titles">Prep Instructions</h1>                      
                 {% for prepInstruct in tikiDrink.prepInstructs %}
                     <h4 class="line">{{prepInstruct}}</h4>
@@ -94,7 +92,7 @@
         </article>
         {% if tikiDrink.owner%}
             
-                <a  class="btn btn-danger" href="/tikiDrink/deleteConf/{{tikiDrink.id}}" style="margin:1rem 0 1rem 0;">Delete Drink</a>
+                <a  class="btn btn-danger" href="/tikiDrink/deleteConf/{{tikiDrink.id}}" style="margin: 0 0 1rem 0;">Delete Drink</a>
         {%- comment -%} <hr> {%- endcomment -%}
         <h1 class="titles">Comments</h1>
         {%- comment -%} <hr>               {%- endcomment -%}
@@ -104,7 +102,7 @@
                         <input class="form-control mb-2" type="text" placeholder="enter your comment..." name="note" required>
                         </div> 
                     </fieldset>
-                    <input class="btn btn-success" style="margin: 2rem;" type="submit" value="Add Comment">
+                    <input class="btn btn-success" style="margin: 1rem 2rem 2rem 2rem;" type="submit" value="Add Comment">
                 </form>
 
             {%- comment -%} <div class="col-md-6">
