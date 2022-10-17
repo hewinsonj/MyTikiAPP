@@ -4,62 +4,65 @@
 {% layout 'layout.liquid' %}
 {% block content %}
     <div style="height: 6rem;"></div>
-    <div class="container-sm" id="customize">
-        <form action="/tikiDrink" method="POST">
-            <fieldset>
-<label class="inputLine" style="margin-top: 1rem;">Name: </label>
-                <input
-                    class="form-control"
-                    type="text"
-                    name="name"
-                    placeholder="enter the name of the drink"
-                    value="{{ tikiDrink.name }}"
-                >
-                <input
-                    style="display: none;"
-                    class="form-check-input"
-                    type="checkbox"
-                    name="fav"
-                    
-                >
-                <input
-                    style="display: none;"
-                    class="form-control"
-                    type="text"
-                    name="lastUpdated"
-                    value={{ "now" | date: "%m/%d/%Y" }}
-                > 
-                
-                <label class="inputLine">Ingredient: </label>
-                <input
-                    class="form-control"
-                    type="text"
-                    name="ingredients"
-                    placeholder="(ingredient) (qty), (ingredient) (qty), (ingredient) (qty)  example: Rum 2oz, Tequila .5oz"
-                >
-                <label class="inputLine">Garnish: </label>
-                <input
-                    class="form-control"
-                    type="text"
-                    name="garnishes"
-                    placeholder="(garnish name) (qty), (garnish name) (qty), (garnish name) (qty)  example: Lime Wheel 1 piece, Lemon Wheel 1 piece"
-                >
-                <label class="inputLine">Glassware: </label>
-                <input
-                    class="form-control"
-                    type="text"
-                    name="glassware"
-                    placeholder="enter glassware"
-                >
-                <label class="inputLine">Prep Instructions: </label>
-                <input
-                    class="form-control"
-                    type="text"
-                    name="prepInstructs"
-                    placeholder="(prep instruction), (prep instuction), (prep instruction) example: Do the thing, Do the other thing, Do the other other thing"
-                    style="margin-bottom: 1rem;"
-                >
-            </fieldset>
+    <div id="fieldBox">
+            <div class="container-sm" id="customize">
+                <form action="/tikiDrink" method="POST">
+                    <fieldset>
+                        <label class="inputLine" style="margin-top: 1rem;">Name:
+                        </label>
+                        <input
+                            class="form-control"
+                            type="text"
+                            name="name"
+                            placeholder="enter the name of the drink"
+                            value="{{ tikiDrink.name }}"
+                        >
+                        <input
+                            style="display: none;"
+                            class="form-check-input"
+                            type="checkbox"
+                            name="fav"
+                            
+                        >
+                        <input
+                            style="display: none;"
+                            class="form-control"
+                            type="text"
+                            name="lastUpdated"
+                            value={{ "now" | date: "%m/%d/%Y" }}
+                        > 
+                        
+                        <label class="inputLine">Ingredient: </label>
+                        <input
+                            class="form-control"
+                            type="text"
+                            name="ingredients"
+                            placeholder="(ingredient) (qty), (ingredient) (qty), (ingredient) (qty)  example: Rum 2oz, Tequila .5oz"
+                        >
+                        <label class="inputLine">Garnish: </label>
+                        <input
+                            class="form-control"
+                            type="text"
+                            name="garnishes"
+                            placeholder="(garnish name) (qty), (garnish name) (qty), (garnish name) (qty)  example: Lime Wheel 1 piece, Lemon Wheel 1 piece"
+                        >
+                        <label class="inputLine">Glassware: </label>
+                        <input
+                            class="form-control"
+                            type="text"
+                            name="glassware"
+                            placeholder="enter glassware"
+                        >
+                        <label class="inputLine">Prep Instructions: </label>
+                        <input
+                            class="form-control"
+                            type="text"
+                            name="prepInstructs"
+                            placeholder="(prep instruction), (prep instuction), (prep instruction) example: Do the thing, Do the other thing, Do the other other thing"
+                            style="margin-bottom: 1rem;"
+                        >
+                    </fieldset>
+                </div>
          </div>
             <input
                 class="btn btn-success"

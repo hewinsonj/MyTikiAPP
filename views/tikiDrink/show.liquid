@@ -1,18 +1,21 @@
 {% layout 'layout.liquid' %}
 {% block content %}
+    <div style="height: 6rem;"></div>
     <div class="container-md">
-        <article class="article">
-            <div class="ownerUpdate">
-            <h2 class="names" >{{tikiDrink.name}}</h2>
-            {%- comment -%} {%if tikiDrink.owner%}
-            {%else%} {%- endcomment -%}
-            {%if tikiDrink.owner%}
-                <h4>Last Updated:</h4>
-                <h3> {{tikiDrink.lastUpdated}}</h3>
-            {%else%}
-                <h4>Original creator:</h4>
-                <h3> {{tikiDrink.ogCreator}}</h3>
-            {%endif%}
+        <article class="article" >
+            <div class="ownerUpdate" style="display:flex; flex-direction:row ">
+                <h2 style="font-size: 3rem;" >{{tikiDrink.name}}</h2>
+                {%- comment -%} {%if tikiDrink.owner%}
+                {%else%} {%- endcomment -%}
+                <div style="float:right">
+                    {%if tikiDrink.owner%}
+                        <h4>Last Updated:</h4>
+                        <h3> {{tikiDrink.lastUpdated}}</h3>
+                    {%else%}
+                        <h4>Original creator:</h4>
+                        <h3> {{tikiDrink.ogCreator}}</h3>
+                    {%endif%}
+                </div>
             </div>
             <div id="bttnGroup" style="justify-content:right">
             <div class="btn-group">
@@ -21,7 +24,7 @@
                         <a class="btn btn-success" style="margin-right: 1rem;" href="/tikiDrink/edit/{{tikiDrink.id}}">Update</a>
 
                 {%else%}
-                        <a class="btn btn-success" href="/tikiDrink/customize/{{tikiDrink.id}}">Customize</a>
+                        <a class="btn btn-success" style="margin-right: 1rem;" href="/tikiDrink/customize/{{tikiDrink.id}}">Customize</a>
                 {% endif %}
             </div>
                 {%if tikiDrink.owner %} 
@@ -92,23 +95,22 @@
         {% if tikiDrink.owner%}
             
                 <a  class="btn btn-danger" href="/tikiDrink/deleteConf/{{tikiDrink.id}}" style="margin:1rem 0 1rem 0;">Delete Drink</a>
-        <hr>
+        {%- comment -%} <hr> {%- endcomment -%}
         <h1 class="titles">Comments</h1>
-        <hr>              
+        {%- comment -%} <hr>               {%- endcomment -%}
                 <form action="/comments/{{tikiDrink.id}}" style="justify-content: center; align-content:center;" method="POST">
                     <fieldset   id="fieldBoxCom" >
                         <div class="titles2">Add Comment 
                         <input class="form-control mb-2" type="text" placeholder="enter your comment..." name="note" required>
                         </div> 
                     </fieldset>
-                    <input class="btn btn-success" style="margin: .5rem;" type="submit" value="add comment">
+                    <input class="btn btn-success" style="margin: 2rem;" type="submit" value="Add Comment">
                 </form>
 
             {%- comment -%} <div class="col-md-6">
                 <small>If you'd like to leave a comment, please log in...</small>
             </div> {%- endcomment -%}
         
-        <hr>
         {% if tikiDrink.comments.length > 0%}
                 <div class="col-md-8 col-lg-6" style="justify-content: center; align-content:center">
                     {% for comment in tikiDrink.comments %}

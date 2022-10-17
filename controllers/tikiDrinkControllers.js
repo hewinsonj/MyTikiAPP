@@ -56,7 +56,10 @@ router.post("/", (req, res) => {
     // this is going to add ownership, via a foreign key reference, to our drinks
     // basically, all we have to do, is append our request body, with the `owner` field, 
     //and set the value to the logged in user's id
-
+    // const id = req.params.id
+    // const username = req.session.username
+    // const loggedIn = req.session.loggedIn
+    // const userId = req.session.userId
     req.body.fav = req.body.fav === 'on' ? true : false
     req.body.owner = req.session.userId
     const ingredArr = req.body.ingredients.split(",")
@@ -68,9 +71,12 @@ router.post("/", (req, res) => {
     console.log('the NEW tikiDrink', req.body)
     // we'll use the mongoose model method `create` to make a new drink
     TikiDrink.create(req.body)
-        .then(tikiDrink => {
-
-            res.redirect('/tikiDrink', )
+        // .then(()=> {
+        //     TikiDrink.findById(id)
+   
+        // })
+        .then(tikiDrink=> {
+            res.redirect('/tikiDrink')
         })
         .catch(err => res.redirect(`/error?error=${err}`))
 })

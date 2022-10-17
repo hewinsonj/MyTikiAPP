@@ -30,7 +30,7 @@ router.get("/search", (req, res) => {
     const userId = req.session.userId
     const searchItem = req.body.note
     TikiDrink.find({$or:[{ingredients: {$regex: searchItem, $options: "i"}},  
-    {name: {$regex: searchItem, $options: "i"}}, {garnishes: {$regex: searchItem, $options: "i"}}, {prepInstructs: {$regex: searchItem, $options: "i"}}, {glassware: {$regex: searchItem, $options: "i"}}, {lastUpdated: {$regex: searchItem, $options: "i"}}]})
+    {name: {$regex: searchItem, $options: "i"}}, {garnishes: {$regex: searchItem, $options: "i"}}, {prepInstructs: {$regex: searchItem, $options: "i"}}, {glassware: {$regex: searchItem, $options: "i"}}, {lastUpdated: {$regex: searchItem, $options: "i"}}, {ogCreator: {$regex: searchItem, $options: "i"}}]})
        //console.log("this is the search data ---->", searchItem)
         .populate("comments.author", "username")
         .then(tikiDrink => {

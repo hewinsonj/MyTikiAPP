@@ -1,95 +1,97 @@
 {% layout 'layout.liquid' %}
 {% block content %}
     <div style="height: 6rem;"></div>
-    <div class="container-sm" id="customize">
-        {%- comment -%} change the action {%- endcomment -%}
-        {%- comment -%} add values to input fields {%- endcomment -%}
-        {%- comment -%} add a back button {%- endcomment -%}
-        <form action="/tikiDrink" method="POST">
-            <fieldset id="field">
-                
-                <legend  style="font-size: 2rem;">Customize {{tikiDrink.name}}</legend>
-            <div>
-                <div class="inputLine">
-                    <label class="form-label">Name:</label>
-                     <input
-                        class="form-control"
-                        type="text"
-                        name="name"
-                        placeholder="Enter the name of the drink"
-                        value="{{ tikiDrink.name }}"
-                      >
-                </div>
-                <input
-                    style="display: none;"
-                    class="form-control"
-                    type="text"
-                    name="lastUpdated"
-                    value={{ "now" | date: "%m/%d/%Y" }}
-                > 
-            {%- comment -%} {% for ingredients in tikiDrink.ingredients %}
- 
-                <div class="inputLine">
-                     <label class="form-label">Ingredient: </label>
-                     <input
+        <div id="fieldBox">
+            <div class="container-sm" id="customize">
+                {%- comment -%} change the action {%- endcomment -%}
+                {%- comment -%} add values to input fields {%- endcomment -%}
+                {%- comment -%} add a back button {%- endcomment -%}
+                <form action="/tikiDrink" method="POST">
+                    <fieldset id="field">
+                        
+                        <legend  style="font-size: 2rem;">Customize {{tikiDrink.name}}</legend>
+                    <div>
+                        <div class="inputLine">
+                            <label class="form-label">Name:</label>
+                            <input
+                                class="form-control"
+                                type="text"
+                                name="name"
+                                placeholder="Enter the name of the drink"
+                                value="{{ tikiDrink.name }}"
+                            >
+                        </div>
+                        <input
+                            style="display: none;"
                             class="form-control"
                             type="text"
-                           name="ingredient"
-                           placeholder="ingredient"
-                           value="{{ingredients}}"
-                    >
-                </div>
-            {% endfor %} {%- endcomment -%}
+                            name="lastUpdated"
+                            value={{ "now" | date: "%m/%d/%Y" }}
+                        > 
+                    {%- comment -%} {% for ingredients in tikiDrink.ingredients %}
+        
+                        <div class="inputLine">
+                            <label class="form-label">Ingredient: </label>
+                            <input
+                                    class="form-control"
+                                    type="text"
+                                name="ingredient"
+                                placeholder="ingredient"
+                                value="{{ingredients}}"
+                            >
+                        </div>
+                    {% endfor %} {%- endcomment -%}
 
-             
-                <div class="inputLine">
-                     <label class="form-label">Ingredient: </label>
-                     <input
-                            class="form-control"
-                            type="text"
-                           name="ingredients"
-                           value="{{ ingredientString }}"
-                    >
+                    
+                        <div class="inputLine">
+                            <label class="form-label">Ingredient: </label>
+                            <input
+                                    class="form-control"
+                                    type="text"
+                                name="ingredients"
+                                value="{{ ingredientString }}"
+                            >
 
-                <div class="inputLine">
-                      <label class="form-label">Garnish: </label>
-                      <input
-                        class="form-control"
-                        type="text"
-                        name="garnishes"
-                        value="{{ garnishString}}"
-                      >
-                </div>
+                        <div class="inputLine">
+                            <label class="form-label">Garnish: </label>
+                            <input
+                                class="form-control"
+                                type="text"
+                                name="garnishes"
+                                value="{{ garnishString}}"
+                            >
+                        </div>
 
-                <div class="inputLine">
-                      <label class="form-label">Glassware: </label>
-                      <input
-                          class="form-control"
-                          type="text"
-                          name="glassware"
-                          value="{{ tikiDrink.glassware }}"
-                      >
-                </div>
+                        <div class="inputLine">
+                            <label class="form-label">Glassware: </label>
+                            <input
+                                class="form-control"
+                                type="text"
+                                name="glassware"
+                                value="{{ tikiDrink.glassware }}"
+                            >
+                        </div>
 
-                <div class="inputLine">
-                      <label class="form-label">Prep Instructions: </label>
-                      <input
-                          class="form-control"
-                          type="text"
-                          name="prepInstructs"
-                           style="margin-bottom: 2rem;"
-                          value="{{ prepInstructString }}"
-                      >
-                </div>
+                        <div class="inputLine">
+                            <label class="form-label">Prep Instructions: </label>
+                            <input
+                                class="form-control"
+                                type="text"
+                                name="prepInstructs"
+                                style="margin-bottom: 1rem;"
+                                value="{{ prepInstructString }}"
+                            >
+                        </div>
 
 
-            </div>
-            </fieldset>
-            </div>
+                    </div>
+                    </fieldset>
+                    </div>
+        </div>
             <input
                 class="btn btn-success"
                 type="submit"
-                style="margin: 1rem;"
+                style="margin: 0 1rem 1rem 1rem;"
                 value="Add to MyCollection"
             >
         

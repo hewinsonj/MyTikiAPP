@@ -87,17 +87,17 @@ body {
     text-align: center;
 }
 
-.names {
+/* .names {
     font-size: 3rem;
     color: white;
     background-color: rgb(20, 20, 20);
     opacity: .95;
     /* margin: 2rem; */
-    border-radius: .25rem;
-    padding-top: 5rem;
-    z-index: -2;
-    overflow: auto;
-}
+    /* border-radius: .25rem; */
+    /* padding-top: 5rem; */
+    /* z-index: -2; */
+    /* overflow: auto; */
+/* } */ 
 
 .row {
     justify-content: center;
@@ -107,6 +107,7 @@ body {
     font-size: 1.5rem;
     color: white;
     background-color: rgb(20, 20, 20);
+    border: solid tan 4px;
     opacity: .95;
     /* margin: 2rem; */
     border-radius: .25rem;
@@ -162,18 +163,18 @@ body {
     /* margin: 2rem; */
     border-radius: .5rem;
     z-index: -2;
-    padding-left: 1rem;
+    padding: 3rem;
 }
 
 #customize {
     font-size: 1rem;
     color: white;
     background-color: rgb(20, 20, 20);
+    padding: 3rem;
     opacity: .95;
     /* margin: 2rem; */
     border-radius: .5rem;
     z-index: -2;
-    padding-left: 1rem;
 }
 
 #fieldBoxCom {
