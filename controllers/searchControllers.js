@@ -24,7 +24,7 @@ router.get("/home", (req, res) => {
 
 // GET request
 ///index route
-router.get("/search", (req, res) => {
+router.get("/search", (req, res) => {// we discussed this functionality Friday, but if you remember, use radials and dry this up by over 50% 
     const username = req.session.username
     const loggedIn = req.session.loggedIn
     const userId = req.session.userId
