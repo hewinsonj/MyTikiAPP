@@ -13,11 +13,11 @@ const router = express.Router()
 /////////////////////////////////////////////
 
 // GET request
-///index for all tikiDrink route
+///index for all tikiDrink route // miss leading comment, it will not get my tiki drinks or those of other users 
 router.get("/", (req, res) => {
     const loggedIn = req.session.loggedIn
     if(loggedIn){
-    TikiDrink.find({ owner: null })
+    TikiDrink.find({ owner: null })// < -- because this line owner: null, also your indentation is off in our if 
         .populate("comments.author", "username")
         .then(tikiDrink => {
             const username = req.session.username
@@ -39,7 +39,7 @@ router.get('/new', (req, res) => {
     const loggedIn = req.session.loggedIn
     const userId = req.session.userId
     if(loggedIn){
-    res.render('tikiDrink/new', { username, loggedIn, userId })
+    res.render('tikiDrink/new', { username, loggedIn, userId })// indentation!
     }else{
         res.redirect(`/error?error=must%20log%20in%20to%20continue`)
     }
@@ -48,9 +48,9 @@ router.get('/new', (req, res) => {
 // POST request
 // create route -> gives the ability to create new drinks
 router.post("/", (req, res) => {
-    req.body.fav = req.body.fav === 'on' ? true : false
+    req.body.fav = req.body.fav === 'on' ? true : false// nice ternary 
     req.body.owner = req.session.userId
-    const ingredArr = req.body.ingredients.split(",")
+    const ingredArr = req.body.ingredients.split(",")// love that you used split, we could dry this up by doing the self referential assignment 
     req.body.ingredients = ingredArr
     const garnishArr = req.body.garnishes.split(",")
     req.body.garnishes = garnishArr
@@ -74,7 +74,7 @@ router.get('/mine', (req, res) => {
             const username = req.session.username
             const loggedIn = req.session.loggedIn
             const userId = req.session.userId
-            if (req.session.loggedIn) {
+            if (req.session.loggedIn) {// redundant if condition given line 71
             res.render('tikiDrink/index', { tikiDrink, username, loggedIn, userId })
             } else{
                 res.redirect(`/error?error=must%20log%20in%20to%20continue`)
@@ -109,7 +109,7 @@ router.get('/favs', (req, res) => {
 // update route -> updates a specific drink
 router.put("/fav/:id", (req, res) => {
     const id = req.params.id
-     req.body.fav = req.body.fav === 'on' ? true : false
+     req.body.fav = req.body.fav === 'on' ? true : false// indentation 
     TikiDrink.findById(id)
         .then(tikiDrink => {
             return tikiDrink.updateOne(req.body)
@@ -128,37 +128,45 @@ router.get("/edit/:id", (req, res) => {
     const tikiDrinkId = req.params.id
     if(loggedIn){
     TikiDrink.findById(tikiDrinkId)
-    .populate("comments.author", "username")
+    .populate("comments.author", "username")// good use of populate
         // render the edit form if there is a drink
         //this will join all items in the arrays and add a comma
         //in between them
         .then(tikiDrink => {
-            let ingredientString = ""
-            for(let i = 0; i < tikiDrink.ingredients.length; i ++){
-                if(i == tikiDrink.ingredients.length - 1){
-                    ingredientString += tikiDrink.ingredients[i]
-                } else {
-                    ingredientString += tikiDrink.ingredients[i] + ","
-                }    
-            }
-            let garnishString = ""
-            for(let i = 0; i < tikiDrink.garnishes.length; i ++){
-                if(i == tikiDrink.garnishes.length - 1){
-                    garnishString += tikiDrink.garnishes[i]
-                } else {
-                    garnishString += tikiDrink.garnishes[i] + ","
-                }
-            }
-            let prepInstructString = ""
-            for(let i = 0; i < tikiDrink.prepInstructs.length; i ++){
-                if(i == tikiDrink.prepInstructs.length - 1){
-                    prepInstructString += tikiDrink.prepInstructs[i]
-                } else {
-                    prepInstructString += tikiDrink.prepInstructs[i] + ","
-                }   
-            }
-            res.render('tikiDrink/edit', { tikiDrink, username, loggedIn, userId, ingredientString, garnishString, prepInstructString })
-        })
+					let ingredientString = '' // we should dry this up - consider writing a callback that takes in an array and returns the string like you want, write it once use it 3 times. or consider researching any built in methods we might have... https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toString
+					for (let i = 0; i < tikiDrink.ingredients.length; i++) {
+						if (i == tikiDrink.ingredients.length - 1) {
+							ingredientString += tikiDrink.ingredients[i]
+						} else {
+							ingredientString += tikiDrink.ingredients[i] + ','
+						}
+					}
+					let garnishString = ''
+					for (let i = 0; i < tikiDrink.garnishes.length; i++) {
+						if (i == tikiDrink.garnishes.length - 1) {
+							garnishString += tikiDrink.garnishes[i]
+						} else {
+							garnishString += tikiDrink.garnishes[i] + ','
+						}
+					}
+					let prepInstructString = ''
+					for (let i = 0; i < tikiDrink.prepInstructs.length; i++) {
+						if (i == tikiDrink.prepInstructs.length - 1) {
+							prepInstructString += tikiDrink.prepInstructs[i]
+						} else {
+							prepInstructString += tikiDrink.prepInstructs[i] + ','
+						}
+					}
+					res.render('tikiDrink/edit', {
+						tikiDrink,
+						username,
+						loggedIn,
+						userId,
+						ingredientString,
+						garnishString,
+						prepInstructString,
+					})
+				})
         .catch(err => {
             res.redirect(`/error?error=${err}`)
         })
@@ -176,7 +184,7 @@ router.put("/:id", (req, res) => {
     req.body.fav = req.body.fav === 'on' ? true : false
     req.body.owner = req.session.userId
     //this will split each string at every comma
-    const ingredArr = req.body.ingredients.split(",")
+    const ingredArr = req.body.ingredients.split(",")// see 53
     req.body.ingredients = ingredArr
     const garnishArr = req.body.garnishes.split(",")
     req.body.garnishes = garnishArr
@@ -215,7 +223,7 @@ router.get("/customize/:id", (req, res) => {
         // render the edit form if there is a drink
         .then(tikiDrink => {
 
-    let ingredientString = ""
+    let ingredientString = ""// see 136
     for(let i = 0; i < tikiDrink.ingredients.length; i ++){
         if(i == tikiDrink.ingredients.length - 1){
             ingredientString += tikiDrink.ingredients[i]
