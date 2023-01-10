@@ -89,7 +89,7 @@ router.get('/mine', (req, res) => {
 // GET request
 // only drinks FAVORITED by user
 router.get('/favs', (req, res) => {
-    // find the drinks, by favorship
+    // find the drinks, by favorites
     const loggedIn = req.session.loggedIn
     if(loggedIn){
     TikiDrink.find({ fav: true, owner: req.session.userId })
@@ -275,6 +275,31 @@ router.get("/:id", (req, res) => {
         })
         .catch(err => res.redirect(`/error?error=${err}`))
 })
+
+// SHOW request
+// read route -> finds and displays a single resource
+router.get("/rumIndex", (req, res) => {
+
+    res.render("rumIndex")
+
+})
+
+// GET for new tikiDrinks
+// renders the form to create new a drink
+router.get('/new', (req, res) => {
+    const username = req.session.username
+    const loggedIn = req.session.loggedIn
+    const userId = req.session.userId
+    if(loggedIn){
+    res.render('tikiDrink/new', { username, loggedIn, userId })
+    }else{
+        res.redirect(`/error?error=must%20log%20in%20to%20continue`)
+    }
+})
+
+// router.get('/signup', (req, res) => {
+//     res.render('users/signup')
+// })
 
 /////GET ROUTE for DRINK DELETE CONFIRMATION
 router.get("/deleteConf/:id", (req, res) => {

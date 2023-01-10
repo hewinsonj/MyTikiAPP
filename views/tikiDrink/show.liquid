@@ -1,7 +1,6 @@
 {% layout 'layout.liquid' %}
 {% block content %}
-    <div style="height: 6rem;"></div>
-    <div class="container-md">
+<div class="topSpace">sssssss</div>
         <article class="article" >
             <div class="ownerUpdate" style="justify-content:space-between; display:flex; flex-direction:column; padding:1rem; ">
                 <h2 style="font-size: 3rem;" >{{tikiDrink.name}}</h2>
@@ -72,7 +71,7 @@
                   <h4 class="line">{{ingredient}}</h4>
                 {% endfor %}  
             </div>
-            <div class="spacer"></div>
+            {%- comment -%} <div class="spacer"></div> {%- endcomment -%}
             <div id="fieldBox">
                 <h1 class="titles">Garnishes</h1>
                     {% for garnish in tikiDrink.garnishes %}
