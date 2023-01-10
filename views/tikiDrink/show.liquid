@@ -72,12 +72,13 @@
                   <h4 class="line">{{ingredient}}</h4>
                 {% endfor %}  
             </div>
-                <div id="fieldBox">
+            <div class="spacer"></div>
+            <div id="fieldBox">
                 <h1 class="titles">Garnishes</h1>
                     {% for garnish in tikiDrink.garnishes %}
-                          <h4 class="line">{{garnish}}</h4>
+                        <h4 class="line">{{garnish}}</h4>
                     {% endfor %}
-                </div>
+            </div>
             <div id="fieldBox">
                 <h1 class="titles">Glassware</h1>
                 <h4 class="line">{{tikiDrink.glassware}}</h4>

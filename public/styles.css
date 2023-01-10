@@ -1,13 +1,14 @@
 body {
     background-image: url(https://i.imgur.com/OiOp4HZ.jpg);
-    background-color: brown;
+    background-color: rgb(20, 30, 30);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     color: black;
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    height: 100%; */
+    max-height: fit-content;
     font-family: 'Libre Baskerville', serif;
     /* font-family: 'Roboto Slab', serif; */
 }
@@ -58,6 +59,7 @@ body {
     font-size: 1.5rem;
 }
 
+
 #fieldBox {
     border: solid tan 8px;
     border-radius: 1rem;
@@ -96,12 +98,16 @@ body {
     opacity: .95;
     background-position: center;
     text-align: center;
-    width: 70%;
+    width: 100%;
     align-content: center;
     justify-content: center;
     margin: auto;
     border-radius: .5rem;
-    padding: 0 1rem 0 1rem;
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+.spacer {
+    border: solid 2px seashell ;
 }
 
 .titles {
@@ -269,7 +275,23 @@ body {
     /* border-image: url(https://i.imgur.com/OiOp4HZ.jpg); */
     border-image-width: 100%;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 
+@media  screen and (min-width: 800px) {
+    .topSpace {
+        height: 13vw;
+    }
+}
+
+
+@media  screen and (max-width: 800px) {
+    .topSpace {
+        height: 13vh;
+    }
+}
+
+/* .topSpace {
+    height: 13vw;
+} */
