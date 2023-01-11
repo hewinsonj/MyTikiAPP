@@ -9,6 +9,7 @@ const UserRouter = require('./controllers/userControllers')
 const middleware = require('./utils/middleware')
 const CommentRouter = require('./controllers/commentControllers')
 const SearchRouter = require('./controllers/searchControllers')
+const RumRouter = require('./controllers/rumControllers')
 
 /////////////////////////////////////////////////
 // Create our Express Application Object Bind Liquid Templating Engine
@@ -38,6 +39,7 @@ app.use('/tikiDrink', TikiDrinkRouter)
 app.use('/users', UserRouter)
 app.use('/comments', CommentRouter)
 app.use('/search', SearchRouter)
+app.use('/rumIndex', RumRouter)
 
 
 

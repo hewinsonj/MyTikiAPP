@@ -276,13 +276,13 @@ router.get("/:id", (req, res) => {
         .catch(err => res.redirect(`/error?error=${err}`))
 })
 
-// SHOW request
-// read route -> finds and displays a single resource
-router.get("/rumIndex", (req, res) => {
+// // SHOW request
+// // read route -> finds and displays a single resource
+// router.get("/rumIndex", (req, res) => {
 
-    res.render("rumIndex")
+//     res.render("rumIndex")
 
-})
+// })
 
 // GET for new tikiDrinks
 // renders the form to create new a drink
@@ -295,6 +295,15 @@ router.get('/new', (req, res) => {
     }else{
         res.redirect(`/error?error=must%20log%20in%20to%20continue`)
     }
+})
+
+
+// GET for new tikiDrinks
+// renders the form to create new a drink
+router.get("/rum", (req, res) => {
+
+    res.render("tikiDrink/rum")
+
 })
 
 // router.get('/signup', (req, res) => {
