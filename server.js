@@ -39,7 +39,7 @@ app.use('/tikiDrink', TikiDrinkRouter)
 app.use('/users', UserRouter)
 app.use('/comments', CommentRouter)
 app.use('/search', SearchRouter)
-app.use('/rumIndex', RumRouter)
+app.use('/rumFolder', RumRouter)
 
 
 

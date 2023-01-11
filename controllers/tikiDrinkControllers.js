@@ -63,6 +63,14 @@ router.post("/", (req, res) => {
         .catch(err => res.redirect(`/error?error=${err}`))
 })
 
+// GET for new tikiDrinks
+// renders the form to create new a drink
+router.get("/rum", (req, res) => {
+
+    res.render("tikiDrink/rum")
+
+})
+
 // GET request
 // only drinks owned by logged in user
 router.get('/mine', (req, res) => {
@@ -298,13 +306,7 @@ router.get('/new', (req, res) => {
 })
 
 
-// GET for new tikiDrinks
-// renders the form to create new a drink
-router.get("/rum", (req, res) => {
 
-    res.render("tikiDrink/rum")
-
-})
 
 // router.get('/signup', (req, res) => {
 //     res.render('users/signup')

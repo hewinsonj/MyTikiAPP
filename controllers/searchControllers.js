@@ -13,6 +13,17 @@ const router = express.Router()
 // Routes
 ////////////////////////////////////////////
 
+// GET for new tikiDrinks
+// renders the form to create new a drink
+router.get("/rum", (req, res) => {
+    const username = req.session.username
+    const loggedIn = req.session.loggedIn
+    const userId = req.session.userId
+    res.render("rum", {username, loggedIn, userId})
+
+})
+
+
 // GET request
 ///index route
 router.get("/home", (req, res) => {
