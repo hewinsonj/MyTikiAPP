@@ -1,27 +1,21 @@
 {% layout 'layout.liquid' %}
 {% block content %}
     <div class="topSpace">sssssss</div>
-        <div id="fieldBox">
-            <div class="container-sm" id="customize">
-                {%- comment -%} change the action {%- endcomment -%}
-                {%- comment -%} add values to input fields {%- endcomment -%}
-                {%- comment -%} add a back button {%- endcomment -%}
-                <form action="/tikiDrink" method="POST">
-                    <fieldset id="field">
-                        
-                        <legend  style="font-size: 2rem;">Customize {{tikiDrink.name}}</legend>
-                    <div>
-                        <div class="inputLine">
-                            <label class="form-label"  style="margin: 1vh 0 1vh 0;">Name:</label>
-                            <input
-                                class="form-control"
-                                type="text"
-                                name="name"
-                                style="margin: 1vh 0 1vh 0;"
-                                placeholder="Enter the name of the drink"
-                                value="{{ tikiDrink.name }}"
-                            >
-                        </div>
+    <div id="fieldBox">
+        <div class="container-sm" id="customize">
+            <form action="/tikiDrink" method="POST">
+                <fieldset id="field">
+                    <legend  style="font-size: 2rem;">Customize {{tikiDrink.name}}</legend>
+                    <div class="inputLine">
+                        <label class="form-label"  style="margin: 1vh 0 1vh 0;">Name:</label>
+                        <input
+                            class="form-control"
+                            type="text"
+                            name="name"
+                            style="margin: 1vh 0 1vh 0;"
+                            placeholder="Enter the name of the drink"
+                            value="{{ tikiDrink.name }}"
+                        >
                         <input
                             style="display: none;"
                             class="form-control"
@@ -29,71 +23,28 @@
                             name="lastUpdated"
                             value={{ "now" | date: "%m/%d/%Y" }}
                         > 
-                    {%- comment -%} {% for ingredients in tikiDrink.ingredients %}
-        
-                        <div class="inputLine">
-                            <label class="form-label">Ingredient: </label>
-                            <input
-                                    class="form-control"
-                                    type="text"
-                                name="ingredient"
-                                placeholder="ingredient"
-                                value="{{ingredients}}"
-                            >
-                        </div>
-                    {% endfor %} {%- endcomment -%}
-
-                    
-                        <div class="inputLine">
-                            <label class="form-label" style="margin: 1vh 0 1vh 0;">Ingredients: </label>
-                                {%- comment -%} <input
-                                        class="form-control"
-                                        type="text"
-                                    name="ingredients"
-                                    value="{{ ingredientString }}"
-                                > {%- endcomment -%}
-                            <textarea 
-                                type="text" 
-                                class="form-control" 
-                                name="ingredients" 
-                                value="{{ ingredientString}}" aria-label="Ingredients Here"  
-                                style="margin: 1vh 0 1vh 0; min-height: 10vh;"
-                            >{{ingredientString}}</textarea>
-                            <div class="inputLine">
-                                <label class="form-label" style="margin: 1vh 0 1vh 0;">Garnish: </label>
-                                {%- comment -%} <input
-                                    class="form-control"
-                                    type="text"
-                                    name="garnishes"
-                                    value="{{ garnishString}}"
-                                > {%- endcomment -%}
-                                <textarea 
-                                    type="text" 
-                                    class="form-control" 
-                                    name="garnishes" 
-                                    style="margin: 1vh 0 1vh 0; min-height: 10vh;" 
-                                >{{ garnishString }}</textarea>
-                            </div>
-
-
-
-                        <div class="inputLine">
-                            <label class="form-label" style="margin: 1vh 0 1vh 0;">Prep Instructions: </label>
-                            {%- comment -%} <input
-                                class="form-control"
-                                type="text"
-                                name="prepInstructs"
-                                style="margin-bottom: 1rem;"
-                                value="{{ prepInstructString }}"
-                            > {%- endcomment -%}
-                            <textarea 
+                        <label class="form-label" style="margin: 1vh 0 1vh 0;">Ingredients: </label>
+                        <textarea 
                             type="text" 
                             class="form-control" 
-                            name="prepInstructs"  
+                            name="ingredients" 
+                            value="{{ ingredientString}}" aria-label="Ingredients Here"  
+                            style="margin: 1vh 0 1vh 0; min-height: 10vh;"
+                        >{{ingredientString}}</textarea>
+                        <label class="form-label" style="margin: 1vh 0 1vh 0;">Garnish: </label>
+                        <textarea 
+                            type="text" 
+                            class="form-control" 
+                            name="garnishes" 
                             style="margin: 1vh 0 1vh 0; min-height: 10vh;" 
-                            >{{ prepInstructString }}</textarea>
-                        </div>
-                        <div class="inputLine">
+                        >{{ garnishString }}</textarea>
+                        <label class="form-label" style="margin: 1vh 0 1vh 0;">Prep Instructions: </label>
+                        <textarea 
+                        type="text" 
+                        class="form-control" 
+                        name="prepInstructs"  
+                        style="margin: 1vh 0 1vh 0; min-height: 10vh;" 
+                        >{{ prepInstructString }}</textarea>
                         <label class="form-label" style="margin: 1vh 0 1vh 0;">Glassware: </label>
                         <input
                             class="form-control"
@@ -102,20 +53,15 @@
                             value="{{ tikiDrink.glassware }}"
                             style="margin: 1vh 0 3vh 0;"
                         >
-                        </div>
-
-
                     </div>
-                    </fieldset>
-            <input
-                class="btn btn-success"
-                type="submit"
-                style="margin: 0 1rem 0rem 10;"
-                value="Add to MyCollection"
-            >
-                    </div>
+                </fieldset>
+                <input
+                    class="btn btn-success"
+                    type="submit"
+                    style="margin: 0 1rem 0rem 10;"
+                    value="Add to MyCollection"
+                >
+            </form>
         </div>
-        
-        </form>
-
+    </div>
 {% endblock %}

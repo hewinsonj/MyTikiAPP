@@ -1,16 +1,13 @@
-{%- comment -%} Needs a submit button with "Save" value
-                The Add buttons should toggle the display value of ingridients 7-10,ingredient amounts 7-10, garnishes 2-4 and garnish amounts 2-4. Find a way to allow prep instructions box to extend verically  {%- endcomment -%}
-
 {% layout 'layout.liquid' %}
 {% block content %}
     <div class="topSpace">sssssss</div>
     <div id="fieldBox">
-            <div  id="customize">
-                <h2>Create New</h2>
-                <form action="/tikiDrink" method="POST">
-                    <fieldset>
-                        <label class="inputLine" style="margin-top: 1rem;">Name:
-                        </label>
+        <div  id="customize" >
+            <form action="/tikiDrink" method="POST">
+                <legend  style="font-size: 2rem;">Create New</legend>
+                <fieldset>
+                    <div class="inputLine">
+                        <label style="margin-top: 1rem;">Name:</label>
                         <input
                             class="form-control"
                             type="text"
@@ -32,14 +29,7 @@
                             name="lastUpdated"
                             value={{ "now" | date: "%m/%d/%Y" }}
                         > 
-                        
-                        <label class="inputLine" >Ingredient: </label>
-                        {%- comment -%} <input
-                            class="form-control"
-                            type="text"
-                            name="ingredients"
-                            placeholder="(ingredient) (qty), (ingredient) (qty), (ingredient) (qty)  example: Rum 2oz, Tequila .5oz"
-                        > {%- endcomment -%}
+                        <label >Ingredient: </label>
                         <textarea 
                             type="text" 
                             class="form-control" 
@@ -48,13 +38,7 @@
                             style="margin: 1vh 0 1vh 0; min-height: 10vh;" 
                             placeholder="(ingredient) (qty), (ingredient) (qty), (ingredient) (qty)  example: Rum 2oz, Tequila .5oz"
                         ></textarea>
-                        <label class="inputLine">Garnish: </label>
-                        {%- comment -%} <input
-                            class="form-control"
-                            type="text"
-                            name="garnishes"
-                            placeholder="(garnish name) (qty), (garnish name) (qty), (garnish name) (qty)  example: Lime Wheel 1 piece, Lemon Wheel 1 piece"
-                        > {%- endcomment -%}
+                        <label >Garnish: </label>
                         <textarea 
                             type="text" 
                             class="form-control" 
@@ -62,22 +46,15 @@
                             style="margin: 1vh 0 1vh 0; min-height: 10vh;" 
                             placeholder="(garnish name) (qty), (garnish name) (qty), (garnish name) (qty)  example: Lime Wheel 1 piece, Lemon Wheel 1 piece"
                             ></textarea>
-                        <label class="inputLine">Prep Instructions: </label>
-                        {%- comment -%} <input
-                            class="form-control"
-                            type="text"
-                            name="prepInstructs"
-                            placeholder="(prep instruction), (prep instruction), (prep instruction) example: Do the thing, Do the other thing, Do the other other thing"
-                            style="margin-bottom: 1rem;"
-                        > {%- endcomment -%}
+                        <label>Prep Instructions: </label>
                         <textarea 
                             type="text" 
                             class="form-control" 
                             name="prepInstructs"  
                             style="margin: 1vh 0 1vh 0; min-height: 10vh;" 
                             placeholder="(prep instruction), (prep instruction), (prep instruction) example: Do the thing, Do the other thing, Do the other other thing"
-                            ></textarea>
-                        <label class="inputLine">Glassware: </label>
+                        ></textarea>
+                        <label>Glassware: </label>
                         <input
                             class="form-control"
                             type="text"
@@ -85,15 +62,14 @@
                             placeholder="enter glassware"
                             style="margin: 1vh 0 3vh 0;"
                         >
-                    </fieldset>
+                    </div>
+                </fieldset>
                 <input
-                class="btn btn-success"
-                type="submit"
-                value="Create New tiki drink"
-            >
-                </div>
-         </div>
-        </form>
-
-
+                    class="btn btn-success"
+                    type="submit"
+                    value="Create New tiki drink"
+                >
+            </form>
+        </div>
+    </div>
 {% endblock %}
