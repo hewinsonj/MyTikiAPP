@@ -18,6 +18,7 @@
                         class="form-control"
                         type="text"
                         name="name"
+                        style="margin: 1vh 0 1vh 0;"
                         placeholder="Enter the name of the drink"
                         value="{{ tikiDrink.name }}"
                       >
@@ -30,13 +31,22 @@
                     value={{ "now" | date: "%m/%d/%Y" }}
                 > 
                 <div class="inputLine">
-                     <label class="form-label">Ingredient: </label>
-                     <input
+                <label class="form-label">Ingredients: </label>
+                     {%- comment -%} <input
                             class="form-control"
                             type="text"
                            name="ingredients"
                            value="{{ ingredientString }}"
-                    >
+                    > {%- endcomment -%}
+                <textarea 
+                    type="text" 
+                    class="form-control" 
+                    name="ingredients" 
+                    value="{{ ingredientString}}" 
+                    aria-label="Ingredients Here"  
+                    style="margin: 1vh 0 1vh 0; min-height: 10vh;"
+                >{{ingredientString}}
+                </textarea>
                 </div>
 
                 {%- comment -%} {%if tikiDrink.ingredient[1]%}
@@ -51,12 +61,38 @@
                 {%endif%} {%- endcomment -%}
                 <div class="inputLine">
                       <label class="form-label">Garnish: </label>
-                      <input
+                      {%- comment -%} <input
                         class="form-control"
                         type="text"
                         name="garnishes"
                         value="{{ garnishString }}"
-                      >
+                      > {%- endcomment -%}
+
+                    <textarea 
+                        type="text" 
+                        class="form-control" 
+                        name="garnishes" 
+                        style="margin: 1vh 0 1vh 0; min-height: 10vh;" 
+                    >{{ garnishString }}</textarea>
+                </div>
+
+
+                <div class="inputLine">
+                      <label class="form-label">Prep Instructions: </label>
+                      {%- comment -%} <input
+                          class="form-control"
+                          type="text"
+                          name="prepInstructs"
+                          style="margin: 1vh 0 1vh 0; min-height: 10vh;"
+                          placeholder="(prep instruction), (prep instruction), (prep instruction) example: Do the thing, Do the other thing, Do the other other thing"
+                          value="{{ prepInstructString }}"
+                      > {%- endcomment -%}
+                    <textarea 
+                        type="text" 
+                        class="form-control" 
+                        name="prepInstructs"  
+                        style="margin: 1vh 0 1vh 0; min-height: 10vh;" 
+                        >{{ prepInstructString }}</textarea>
                 </div>
 
                 <div class="inputLine">
@@ -66,29 +102,20 @@
                           type="text"
                           name="glassware"
                           value="{{ tikiDrink.glassware }}"
-                      >
-                </div>
-
-                <div class="inputLine">
-                      <label class="form-label">Prep Instructions: </label>
-                      <input
-                          class="form-control"
-                          type="text"
-                          name="prepInstructs"
-                          style="margin-bottom: 1rem;"
-                          value="{{ prepInstructString }}"
+                          style="margin: 1vh 0 3vh 0;"
                       >
                 </div>
  
             </div>
             </fieldset>
-        </div>
-            <input
+        <input
                 class="btn btn-success"
                 type="submit"
-                style="margin: 1rem;"
+                {%- comment -%} style="margin: 1rem;" {%- endcomment -%}
                 value="Update {{tikiDrink.name}}"
             >
+        </div>
+            
         </form>
 
 

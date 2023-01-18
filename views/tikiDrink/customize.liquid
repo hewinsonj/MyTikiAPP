@@ -17,6 +17,7 @@
                                 class="form-control"
                                 type="text"
                                 name="name"
+                                style="margin: 1vh 0 1vh 0;"
                                 placeholder="Enter the name of the drink"
                                 value="{{ tikiDrink.name }}"
                             >
@@ -44,43 +45,63 @@
 
                     
                         <div class="inputLine">
-                            <label class="form-label" style="margin: 1vh 0 1vh 0;">Ingredient: </label>
-                            <input
+                            <label class="form-label" style="margin: 1vh 0 1vh 0;">Ingredients: </label>
+                                {%- comment -%} <input
+                                        class="form-control"
+                                        type="text"
+                                    name="ingredients"
+                                    value="{{ ingredientString }}"
+                                > {%- endcomment -%}
+                            <textarea 
+                                type="text" 
+                                class="form-control" 
+                                name="ingredients" 
+                                value="{{ ingredientString}}" aria-label="Ingredients Here"  
+                                style="margin: 1vh 0 1vh 0; min-height: 10vh;"
+                            >{{ingredientString}}</textarea>
+                            <div class="inputLine">
+                                <label class="form-label" style="margin: 1vh 0 1vh 0;">Garnish: </label>
+                                {%- comment -%} <input
                                     class="form-control"
                                     type="text"
-                                name="ingredients"
-                                value="{{ ingredientString }}"
-                            >
+                                    name="garnishes"
+                                    value="{{ garnishString}}"
+                                > {%- endcomment -%}
+                                <textarea 
+                                    type="text" 
+                                    class="form-control" 
+                                    name="garnishes" 
+                                    style="margin: 1vh 0 1vh 0; min-height: 10vh;" 
+                                >{{ garnishString }}</textarea>
+                            </div>
 
-                        <div class="inputLine">
-                            <label class="form-label" style="margin: 1vh 0 1vh 0;">Garnish: </label>
-                            <input
-                                class="form-control"
-                                type="text"
-                                name="garnishes"
-                                value="{{ garnishString}}"
-                            >
-                        </div>
 
-                        <div class="inputLine">
-                            <label class="form-label" style="margin: 1vh 0 1vh 0;">Glassware: </label>
-                            <input
-                                class="form-control"
-                                type="text"
-                                name="glassware"
-                                value="{{ tikiDrink.glassware }}"
-                            >
-                        </div>
 
                         <div class="inputLine">
                             <label class="form-label" style="margin: 1vh 0 1vh 0;">Prep Instructions: </label>
-                            <input
+                            {%- comment -%} <input
                                 class="form-control"
                                 type="text"
                                 name="prepInstructs"
                                 style="margin-bottom: 1rem;"
                                 value="{{ prepInstructString }}"
-                            >
+                            > {%- endcomment -%}
+                            <textarea 
+                            type="text" 
+                            class="form-control" 
+                            name="prepInstructs"  
+                            style="margin: 1vh 0 1vh 0; min-height: 10vh;" 
+                            >{{ prepInstructString }}</textarea>
+                        </div>
+                        <div class="inputLine">
+                        <label class="form-label" style="margin: 1vh 0 1vh 0;">Glassware: </label>
+                        <input
+                            class="form-control"
+                            type="text"
+                            name="glassware"
+                            value="{{ tikiDrink.glassware }}"
+                            style="margin: 1vh 0 3vh 0;"
+                        >
                         </div>
 
 
@@ -96,41 +117,5 @@
         </div>
         
         </form>
-
-
-<script>
-    const field = document.getElementById("field")
-    //const ingredient = "{{tikiDrink.ingredient}}"
-
-    //document.addEventListener('DOMContentLoaded', () => {
-    //ingredient.forEach(createBox())
-    //}
-
-    //const createBox = () => {
-    //const inputBox = document.createElement('input')
-    //const inputLabel = document.createElement('label')
-    //inputLabel.innerText = "Ingredient"
-    //inputLabel.classList.add("form-label")
-    //inputBox.value = "{{tikiDrink.ingredient}}"
-    //inputBox.classList.add("form-control")
-    //inputBox.name = "ingredient"
-    //field.appendChild(inputLabel)
-    //field.appendChild(inputBox)
-    //}
-    
-    
-    const addBox = () => {
-    const inputBox = document.createElement('input')
-    const inputLabel = document.createElement('label')
-    inputLabel.innerText = "Ingredient"
-    inputLabel.classList.add("form-label")
-    inputBox.placeholder = "put stuff here"
-    inputBox.classList.add("form-control")
-    inputBox.name = "ingredient"
-    field.appendChild(inputLabel)
-    field.appendChild(inputBox)
-    }
-    
-    </script>
 
 {% endblock %}

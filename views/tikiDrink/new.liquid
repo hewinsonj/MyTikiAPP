@@ -15,6 +15,7 @@
                             class="form-control"
                             type="text"
                             name="name"
+                            style="margin: 1vh 0 1vh 0;"
                             placeholder="enter the name of the drink"
                             value="{{ tikiDrink.name }}"
                         >
@@ -23,7 +24,6 @@
                             class="form-check-input"
                             type="checkbox"
                             name="fav"
-                            
                         >
                         <input
                             style="display: none;"
@@ -33,34 +33,57 @@
                             value={{ "now" | date: "%m/%d/%Y" }}
                         > 
                         
-                        <label class="inputLine">Ingredient: </label>
-                        <input
+                        <label class="inputLine" >Ingredient: </label>
+                        {%- comment -%} <input
                             class="form-control"
                             type="text"
                             name="ingredients"
                             placeholder="(ingredient) (qty), (ingredient) (qty), (ingredient) (qty)  example: Rum 2oz, Tequila .5oz"
-                        >
+                        > {%- endcomment -%}
+                        <textarea 
+                            type="text" 
+                            class="form-control" 
+                            name="ingredients" 
+                            aria-label="Ingredients Here"  
+                            style="margin: 1vh 0 1vh 0; min-height: 10vh;" 
+                            placeholder="(ingredient) (qty), (ingredient) (qty), (ingredient) (qty)  example: Rum 2oz, Tequila .5oz"
+                        ></textarea>
                         <label class="inputLine">Garnish: </label>
-                        <input
+                        {%- comment -%} <input
                             class="form-control"
                             type="text"
                             name="garnishes"
                             placeholder="(garnish name) (qty), (garnish name) (qty), (garnish name) (qty)  example: Lime Wheel 1 piece, Lemon Wheel 1 piece"
-                        >
+                        > {%- endcomment -%}
+                        <textarea 
+                            type="text" 
+                            class="form-control" 
+                            name="garnishes" 
+                            style="margin: 1vh 0 1vh 0; min-height: 10vh;" 
+                            placeholder="(garnish name) (qty), (garnish name) (qty), (garnish name) (qty)  example: Lime Wheel 1 piece, Lemon Wheel 1 piece"
+                            ></textarea>
+                        <label class="inputLine">Prep Instructions: </label>
+                        {%- comment -%} <input
+                            class="form-control"
+                            type="text"
+                            name="prepInstructs"
+                            placeholder="(prep instruction), (prep instruction), (prep instruction) example: Do the thing, Do the other thing, Do the other other thing"
+                            style="margin-bottom: 1rem;"
+                        > {%- endcomment -%}
+                        <textarea 
+                            type="text" 
+                            class="form-control" 
+                            name="prepInstructs"  
+                            style="margin: 1vh 0 1vh 0; min-height: 10vh;" 
+                            placeholder="(prep instruction), (prep instruction), (prep instruction) example: Do the thing, Do the other thing, Do the other other thing"
+                            ></textarea>
                         <label class="inputLine">Glassware: </label>
                         <input
                             class="form-control"
                             type="text"
                             name="glassware"
                             placeholder="enter glassware"
-                        >
-                        <label class="inputLine">Prep Instructions: </label>
-                        <input
-                            class="form-control"
-                            type="text"
-                            name="prepInstructs"
-                            placeholder="(prep instruction), (prep instruction), (prep instruction) example: Do the thing, Do the other thing, Do the other other thing"
-                            style="margin-bottom: 1rem;"
+                            style="margin: 1vh 0 3vh 0;"
                         >
                     </fieldset>
                 <input
