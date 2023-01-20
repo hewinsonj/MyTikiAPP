@@ -3,74 +3,87 @@
     
     <div class="topSpace" id="bTTop">sssssss</div>
 
-    <div data-spy="scroll" data-target="#navbar-example2" data-method="offset" data-offset="10" >
-        <nav id="navbar-example2" class="navbar bg-dark" style="padding: 1rem; border-radius:1rem;">
-            <a class="btn btn-secondary" href="#butt">Butt</a>
+    <div data-spy="scroll" data-target="#navbar-example2" data-method="offset" data-offset="10" style="justify-content:center">
 
-            <a class="btn btn-secondary" href="#boop">Boop</a>
-
-            <a class="btn btn-secondary" href="#pot">Pot</a>
-
-            <a class="btn btn-secondary" href="#one">One</a>
-
-            <a class="btn btn-secondary" href="#two">Two</a>
-        </nav>
         
-        <h4 id="butt" class="indexSpacing"></h4>
+        <div style="display: flex;">
+            <div>
+                <div style="padding: 0; font-size: 4vh; justify-content:center">
+                    <nav 
+                        id="navbar-example2 " class="navbar bg-dark ownerUpdate" style="display: flex; flex-direction: column; padding: 2rem; margin: 1rem; border-radius:1rem; position:fixed; right:0;" 
+                    >
+                        <a class="btn btn-secondary buttSpace" href="#bTTop">Butt</a>
 
-        <div   class="line">
-            <h2>Your Butt Rum</h2>
-            <h4>Last Updated:</h4>
-            <h3> DrinlastUpda</h3>
-            <h4>Original creator:</h4>
-        </div>
+                        <a class="btn btn-secondary buttSpace" href="#boop">Boop</a>
 
-        <h4 id="boop" class="indexSpacing"></h4>
+                        <a class="btn btn-secondary buttSpace" href="#pot">Pot</a>
 
-        <div   class="line">
-            <h2>Boopty</h2>
-            <h4>Last Updated:</h4>
-            <h3> DrinlastUpda</h3>
-            <h4>Original creator:</h4>
-        </div>
+                        <a class="btn btn-secondary buttSpace" href="#one">One</a>
 
-        <h4 id="pot" class="indexSpacing"></h4>
+                        <a class="btn btn-secondary buttSpace" href="#two">Two</a>
 
-        <div   class="line">
-            <h2 class="ownerUpdate" >Pot Still</h2>
-            <div style="display: inline-flex;">
-                <div  style="margin:4vh;">
-                    <h4>Pot on your butt</h4>
-                    <h4>Last Updated:</h4>
+                        <a class="btn btn-secondary buttSpace" href="#">Back to Top</a>
+                    </nav>
                 </div>
-                <div  style="margin: 4vh;">
-                    <h4> DrinlastUpda</h4>
+            </div>
+            <div>
+                <h4 id="butt"></h4>
+
+                <div   class="line">
+                    <h2>Your Butt Rum</h2>
+                    <h4>Last Updated:</h4>
+                    <h3> DrinlastUpda</h3>
                     <h4>Original creator:</h4>
+                </div>
+
+                <h4 id="boop" class="indexSpacing"></h4>
+
+                <div   class="line">
+                    <h2>Boopty</h2>
+                    <h4>Last Updated:</h4>
+                    <h3> DrinlastUpda</h3>
+                    <h4>Original creator:</h4>
+                </div>
+
+                <h1 id="pot" class="indexSpacing"></h1>
+                <div id="fieldBox">
+                    <div   class="line">
+                        <h1 class="ownerUpdate" style="padding: 0; font-size: 4vh;">Pot Still</h1>
+                        <div style="display: inline-flex;">
+                            <div  style="margin:4vh;">
+                                <h4>Pot on your butt</h4>
+                                <h4>Last Updated:</h4>
+                            </div>
+                            <div  style="margin: 4vh;">
+                                <h4> DrinlastUpda</h4>
+                                <h4>Original creator:</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h4 id="one" class="indexSpacing"></h4>
+
+                <div   class="line">
+                    <h2>Another one bites the dust</h2>
+                    <h4>Last Updated:</h4>
+                    <h3> DrinlastUpda</h3>
+                    <h4>Original creator:</h4>
+                </div>
+
+                <h4 id="two"  class="indexSpacing"></h4>
+
+                <div  class="line">
+                    <h2 style="font-size: 3rem;"  >Two of a king</h2>
+                    <h4>Last Updated:</h4>
+                    <h3> DrinlastUpda</h3>
+                    <h4>Original creator:</h4>
+                    <h3> tikiDr</h3>
+                    <h4>gredient</h4>
                 </div>
             </div>
         </div>
-
-        <h4 id="one" class="indexSpacing"></h4>
-
-        <div   class="line">
-            <h2>Another one bites the dust</h2>
-            <h4>Last Updated:</h4>
-            <h3> DrinlastUpda</h3>
-            <h4>Original creator:</h4>
-        </div>
-
-        <h4 id="two"  class="indexSpacing"></h4>
-
-        <div  class="line">
-            <h2 style="font-size: 3rem;"  >Two of a king</h2>
-            <h4>Last Updated:</h4>
-            <h3> DrinlastUpda</h3>
-            <h4>Original creator:</h4>
-            <h3> tikiDr</h3>
-            <h4>gredient</h4>
-        </div>
     </div> 
-    <a class="btn btn-success topNav"  href="#bTTop">Back to top</a>
+    {%- comment -%} <a class="btn btn-success topNav"  href="#bTTop">Back to top</a> {%- endcomment -%}
 
 
 

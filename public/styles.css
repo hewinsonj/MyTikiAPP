@@ -15,17 +15,32 @@ body {
     /* font-family: 'Roboto Slab', serif; */
 }
 
+html {
+    width: 100%;
+    height: 100%;
+}
+
 .indexSpacing {
     height: 20vh;
 }
 
 .topNav {
-    margin: 4vh;
+    /* margin: 14vh; */
     position: fixed;
-    bottom: 0vh;
-    right: 0vh;
+    top: 6rem;
+    background-color: rgb(20, 20, 20);
+    border: solid tan 4px;
+    width: 70vw;
+    /* justify-self: center;
+    align-self: center; */
+    /* left: 35vw; */
+    z-index: 1;
 
 
+}
+
+.buttSpace {
+    margin: 1vw 0 1vw 0;
 }
 
 .card-header {
