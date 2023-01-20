@@ -6,18 +6,19 @@ body {
     background-size: cover;
     background-attachment: fixed;
     color: black;
-    /* width: 100%;
-    height: 100%; */
-    position: relative;
+    width: 100%;
+    height: 100%;
+    /* position: relative; */
     overflow-y: scroll;
-    max-height: fit-content;
+    /* max-height: fit-content; */
     font-family: 'Libre Baskerville', serif;
     /* font-family: 'Roboto Slab', serif; */
 }
 
 html {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
+    margin: 0%;
 }
 
 .indexSpacing {
@@ -25,22 +26,18 @@ html {
 }
 
 .topNav {
-    /* margin: 14vh; */
+    margin-bottom: 10vh;
     position: fixed;
-    top: 6rem;
-    background-color: rgb(20, 20, 20);
-    border: solid tan 4px;
-    width: 70vw;
+    bottom: 2vh;
     /* justify-self: center;
     align-self: center; */
-    /* left: 35vw; */
+    right: 5vw;
     z-index: 1;
-
-
 }
 
 .buttSpace {
     margin: 1vw 0 1vw 0;
+    font-size: 1rem;
 }
 
 .card-header {
