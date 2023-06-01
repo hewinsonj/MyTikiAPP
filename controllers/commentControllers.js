@@ -58,7 +58,7 @@ router.delete('/delete/:tikiDrinkId/:commId', (req, res) => {
             const theComment = tikiDrink.comments.id(commId)
             console.log('this is the comment that was found', theComment)
             // make sure the user is logged in
-            if (req.session.loggedIn) {
+            if (req.session.loggedIn) {// consolidate this block using && since the error codes are the same
                 // only let the author of the comment delete it
                 if (theComment.author == req.session.userId) {
                     // find some way to remove the comment
