@@ -1,19 +1,19 @@
 {% layout 'layout.liquid' %}
 {% block content %}
-    {% if tikiDrink.length > 0%}
+    {% if tikiDrink.length > 0 %}
         <div>
             <div class="topSpace">sssssss</div>
             <div class="row">
+            {% comment %} {%if  === "/favs" %}
+            <h3 class="card-body">Favorites</h3>
+            {% endif %} {% endcomment %}
                 
                 {% for tikiDrink in tikiDrink %}
                     <div class="card" style="width: 18rem;">
                         
                         <div class="card-header" >{{tikiDrink.name}}</div>
                         <div class="card-body" style="display: flex; flex-direction:column; text-align: center; justify-content:space-between; align-content:center ">
-                            
                             {%- comment -%} <p>Last Updated: {{tikiDrink.lastUpdated}}</p> {%- endcomment -%}
-                            
-
                             {%if tikiDrink.owner%}
                                 <h5>Last Updated: </h5>
                                 <h4  class="card-text"> {{tikiDrink.lastUpdated}}</h4>
@@ -32,8 +32,9 @@
             </div>
         </div>
     {% else %}
+    <div class="topSpace">-----------</div>
         <div>
-            <h2 class="display-6">No drinks yet... time to come up with some!</h2>
+            <h2 class="container-fluid" id="noDrinks">No drinks yet... time to come up with some!</h2>
         </div>
     {% endif %}
 {% endblock %}
