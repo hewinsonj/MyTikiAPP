@@ -10,9 +10,15 @@ processes = []
 
 [env]
   PORT = "8080"
-SECRET= "donsmixnumber7"
 
-MONGODB_URI="mongodb+srv://burger:burger@cluster0.4tmzof4.mongodb.net/?retryWrites=true&w=majority"
+# SECRET (session signing key) and MONGODB_URI are NOT set here — fly.toml is committed,
+# so anything in [env] is public. Set them as secrets instead, which Fly injects at
+# runtime and never writes to the repo:
+#
+#   fly secrets set SECRET="<random string>" -a mytikiapp
+#   fly secrets set MONGODB_URI="mongodb+srv://<user>:<pw>@<host>/mytiki?retryWrites=true&w=majority"
+#
+# Note the database name in the path — without one, Mongo silently writes to "test".
 
 [experimental]
   allowed_public_ports = []
